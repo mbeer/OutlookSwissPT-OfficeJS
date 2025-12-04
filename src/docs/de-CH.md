@@ -220,10 +220,10 @@ Dieses Add-in ist unter der MIT-Lizenz veröffentlicht.
 
 ## Screenshot-Referenzen
 
-[step-1-de]: ../assets/screenshots/step-1-de.png "Manifest herunterladen"
-[step-2-de]: ../assets/screenshots/step-2-de.png "Outlook Desktop – Add-in Installation"
-[step-3-de]: ../assets/screenshots/step-3-de.png "Outlook Web – Add-in Installation"
-[step-4]: ../assets/screenshots/step-4.png "Suchschnittstelle"
-[step-5]: ../assets/screenshots/step-5.png "Verbindungsauswahl"
-[step-6]: ../assets/screenshots/step-6.png "Termin erstellen"
-[step-7]: ../assets/screenshots/step-7.png "Sprach-Einstellung und Favoriten-Verwaltung"
+[step-1-de]: /assets/screenshots/step-1-de.png "Manifest herunterladen"
+[step-2-de]: /assets/screenshots/step-2-de.png "Outlook Desktop – Add-in Installation"
+[step-3-de]: /assets/screenshots/step-3-de.png "Outlook Web – Add-in Installation"
+[step-4]: /assets/screenshots/step-4.png "Suchschnittstelle"
+[step-5]: /assets/screenshots/step-5.png "Verbindungsauswahl"
+[step-6]: /assets/screenshots/step-6.png "Termin erstellen"
+[step-7]: /assets/screenshots/step-7.png "Sprach-Einstellung und Favoriten-Verwaltung"
