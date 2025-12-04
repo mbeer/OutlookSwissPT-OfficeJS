@@ -96,7 +96,7 @@ Klicken Sie auf eine Verbindung, um sie auszuwählen (die Zeile wird hervorgehob
 
 ### Schritt 4: In Kalender übernehmen
 
-Nachdem Sie eine Verbindung ausgewählt haben, klicken Sie auf **Termin erstellen**.
+Nachdem Sie eine Verbindung ausgewählt haben, klicken Sie auf **Hinreise in den Kalender eintragen** (für die Hinfahrt) oder **Rückreise in den Kalender eintragen** (für die Rückfahrt).
 
 Das Add-in erstellt automatisch einen Kalender-Termin mit:
 - **Titel**: "Transfer [Von] – [Nach]"
@@ -107,7 +107,7 @@ Das Add-in erstellt automatisch einen Kalender-Termin mit:
 
 Der Termin wird im Outlook-Kalender eingetragen.
 
-![Termin erstellen][step-6]
+<img src="/assets/screenshots/step-6.png" alt="Termin in Kalender eintragen" width="60%">
 
 ---
 
