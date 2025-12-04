@@ -77,7 +77,7 @@ Klicken Sie auf **Suchen** – das System findet Verbindungen, die vor dem Termi
 #### Rückfahrt (vom Termin)
 Ähnlich wie die Hinfahrt: Geben Sie ein, wohin Sie zurück möchten und wie lange Sie zu Fuss brauchen.
 
-<img src="/assets/screenshots/step-4.png" alt="Suchschnittstelle" width="60%">
+<img src="/assets/screenshots/step-4.png" alt="Suchschnittstelle" width="30%">
 
 ---
 
@@ -90,7 +90,7 @@ Die Suchergebnisse werden in einer Tabelle angezeigt:
 
 Klicken Sie auf eine Verbindung, um sie auszuwählen (die Zeile wird hervorgehoben).
 
-<img src="/assets/screenshots/step-5.png" alt="Verbindungsauswahl" width="60%">
+<img src="/assets/screenshots/step-5.png" alt="Verbindungsauswahl" width="30%">
 
 ---
 
@@ -139,7 +139,7 @@ Um die Sprache manuell zu ändern:
 2. Unter **Sprache** wählen Sie Ihre bevorzugte Sprache aus
 3. Das Add-in wird sofort neu geladen
 
-<img src="/assets/screenshots/step-7.png" alt="Sprach-Einstellung und Favoriten-Verwaltung" width="60%">
+<img src="/assets/screenshots/step-7.png" alt="Sprach-Einstellung und Favoriten-Verwaltung" width="30%">
 
 ---
 
