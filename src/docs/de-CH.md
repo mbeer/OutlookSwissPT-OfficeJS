@@ -117,8 +117,8 @@ Der Termin wird im Outlook-Kalender eingetragen.
 
 Häufig genutzte Haltestellen können Sie als Favoriten speichern, um sie schneller auszuwählen.
 
-1. Klicken Sie im Add-in-Fenster auf **Einstellungen**
-2. Unter **Favoriten** können Sie:
+1. Klicken Sie im Add-in-Fenster auf **Einstellungen** (Zahnrad-Symbol oben rechts)
+2. Unter **Standardhaltestellen** können Sie:
    - Neue Haltestelle hinzufügen: Name eingeben + Geh-Zeit in Minuten
    - Favoriten bearbeiten oder löschen
    - Reihenfolge ändern (Nach oben/unten verschieben)
