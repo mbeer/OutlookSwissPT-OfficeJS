@@ -10,6 +10,14 @@ It uses the [search.ch timetable API](https://search.ch/fahrplan/api) to query r
 
 ---
 
+## Documentation
+
+**User Guide (German)**: [Fahrplanabfrage für Outlook – Benutzerhandbuch](src/docs/de-CH.md)
+
+Additional language documentation coming soon. Contributions welcome!
+
+---
+
 ## Features
 
 - Display **outbound** and **return** connections for the current Outlook appointment.
