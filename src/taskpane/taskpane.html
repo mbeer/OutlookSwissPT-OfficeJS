@@ -1,0 +1,454 @@
+<!-- OutlookSwissPTTimetable taskpane UI -->
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Swiss Public Transport Timetable</title>
+
+    <!-- Office JavaScript API -->
+    <script
+      type="text/javascript"
+      src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"
+    ></script>
+
+    <!-- Fluent UI / Office UI Fabric Core -->
+    <link
+      rel="stylesheet"
+      href="https://res-1.cdn.office.net/files/fabric-cdn-prod_20230815.002/office-ui-fabric-core/11.1.0/css/fabric.min.css"
+    />
+
+    <!-- Custom styles -->
+    <link href="taskpane.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body class="ms-Fabric ms-font-m">
+    <!-- Notice when sideloading / when Office context is not ready yet -->
+    <section id="sideload-msg" class="owptt-sideload">
+      <h2 class="ms-font-l" data-i18n="sideload.title">Add-in not loaded yet</h2>
+      <p class="ms-font-s" id="sideload-text">
+        <span data-i18n="sideload.text">
+          Please sideload the add-in in Outlook to display the timetable query.
+        </span>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://learn.microsoft.com/office/dev/add-ins/testing/test-debug-office-add-ins#sideload-an-office-add-in-for-testing"
+          data-i18n="sideload.link"
+        >
+          Learn more
+        </a>
+      </p>
+    </section>
+
+    <!-- Main content: made visible by taskpane.js -->
+    <main id="app-body" class="owptt-main">
+      <div class="owptt-root">
+        <!-- Header with title and settings button -->
+        <header class="owptt-header">
+          <div class="owptt-header-text">
+            <h1 class="ms-font-l owptt-app-title" data-i18n="app.title">
+              Swiss Public Transport Timetable
+            </h1>
+            <p class="ms-font-xs owptt-app-subtitle" data-i18n="app.subtitle">
+              Timetable for outbound and return journeys to this appointment.
+            </p>
+          </div>
+          <button
+            type="button"
+            class="ms-Button ms-Button--icon owptt-settings-button"
+            aria-label="Settings"
+            data-i18n-aria-label="app.settingsAria"
+          >
+            <span class="ms-Icon ms-Icon--Settings"></span>
+          </button>
+        </header>
+
+        <!-- Inline error banner (shown on runtime errors) -->
+        <div id="owptt-error-container" class="owptt-error-container" aria-live="polite"></div>
+
+        <!-- Appointment info (hidden by default, info shown on left side of Outlook window) -->
+        <section class="owptt-section owptt-section-appointment" hidden>
+          <div class="owptt-section-header">
+            <h2 class="ms-font-m owptt-section-title" data-i18n="appointment.title">
+              Current appointment
+            </h2>
+
+            <button
+              type="button"
+              id="run"
+              class="ms-Button ms-Button--hero ms-font-s owptt-button-secondary"
+            >
+              <span class="ms-Button-label" data-i18n="appointment.refreshButton">
+                Refresh appointment data
+              </span>
+            </button>
+          </div>
+
+          <div id="item-info" class="ms-font-xs owptt-item-info"></div>
+        </section>
+
+        <!-- Stop near meeting location -->
+        <section class="owptt-section owptt-section-location">
+          <h2 class="ms-font-m owptt-section-title" data-i18n="meetingLocation.title">
+            Stop near meeting location
+          </h2>
+
+          <div class="owptt-field-row-group">
+            <div class="owptt-field-row">
+              <label for="meeting-station" class="ms-font-s" data-i18n="meetingLocation.stationLabel">
+                Stop at meeting location:
+              </label>
+              <input
+                id="meeting-station"
+                type="text"
+                class="owptt-input"
+                autocomplete="off"
+                autocorrect="off"
+                spellcheck="false"
+                data-i18n-placeholder="meetingLocation.stationPlaceholder"
+                placeholder="e.g. Lugano"
+              />
+            </div>
+
+            <div class="owptt-field-row owptt-field-row-inline owptt-field-row-number">
+              <div class="owptt-minute-field">
+                <label for="meeting-walk-minutes" class="ms-font-s" data-i18n="meetingLocation.walkLabel">
+                  Walking time (min)
+                </label>
+                <input
+                  id="meeting-walk-minutes"
+                  type="number"
+                  min="0"
+                  step="1"
+                  value="0"
+                  class="owptt-input owptt-input-small"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Outbound journey (from origin) -->
+        <section class="owptt-section owptt-section-inbound">
+          <h2 class="ms-font-m owptt-section-title" data-i18n="inbound.title">
+            Outbound journey (to appointment)
+          </h2>
+
+          <div class="owptt-field-row-group">
+            <div class="owptt-field-row">
+              <label for="in-from-station" class="ms-font-s" data-i18n="inbound.fromLabel">
+                From (origin stop / place):
+              </label>
+              <input
+                id="in-from-station"
+                type="text"
+                class="owptt-input"
+                autocomplete="off"
+                autocorrect="off"
+                spellcheck="false"
+                data-i18n-placeholder="inbound.fromPlaceholder"
+                placeholder="e.g. Thörishaus Dorf"
+              />
+            </div>
+
+            <div class="owptt-field-row owptt-field-row-inline owptt-field-row-number">
+              <div class="owptt-minute-field">
+                <label for="in-walk-minutes" class="ms-font-s" data-i18n="inbound.walkLabel">
+                  Walking time (min)
+                </label>
+                <input
+                  id="in-walk-minutes"
+                  type="number"
+                  min="0"
+                  step="1"
+                  value="15"
+                  class="owptt-input owptt-input-small"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="owptt-actions owptt-actions-compact">
+            <button
+              type="button"
+              id="btn-search-inbound"
+              class="ms-Button ms-Button--hero ms-font-s owptt-button-primary"
+            >
+              <span class="ms-Button-label" data-i18n="inbound.searchButton">
+                Search connections
+              </span>
+            </button>
+          </div>
+
+          <div class="owptt-connections">
+            <table class="owptt-table" aria-describedby="inbound-table-caption">
+              <caption
+                id="inbound-table-caption"
+                class="ms-font-xs owptt-table-caption"
+                data-i18n="inbound.tableCaption"
+              >
+                Outbound connections to the appointment
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col" data-i18n="connections.departure">Departure</th>
+                  <th scope="col" data-i18n="connections.route">Route</th>
+                  <th scope="col" data-i18n="connections.arrival">Arrival</th>
+                  <th scope="col" data-i18n="connections.duration">Duration</th>
+                </tr>
+              </thead>
+              <tbody id="inbound-connections-body">
+                <tr class="owptt-placeholder-row">
+                  <td colspan="4" class="ms-font-xs owptt-placeholder" data-i18n="inbound.empty">
+                    No connections loaded yet. Please search first.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="owptt-actions owptt-actions-compact">
+            <button
+              type="button"
+              id="btn-create-inbound"
+              class="ms-Button ms-Button--hero ms-font-s owptt-button-primary"
+            >
+              <span class="ms-Button-label" data-i18n="inbound.insertButton">
+                Insert outbound journey in calendar
+              </span>
+            </button>
+          </div>
+        </section>
+
+        <!-- Return journey (to destination) – below outbound journey -->
+        <section class="owptt-section owptt-section-outbound">
+          <h2 class="ms-font-m owptt-section-title" data-i18n="outbound.title">
+            Return journey (from appointment)
+          </h2>
+
+          <div class="owptt-field-row-group">
+            <div class="owptt-field-row">
+              <label for="out-to-station" class="ms-font-s" data-i18n="outbound.toLabel">
+                To (destination stop / place):
+              </label>
+              <input
+                id="out-to-station"
+                type="text"
+                class="owptt-input"
+                autocomplete="off"
+                autocorrect="off"
+                spellcheck="false"
+                data-i18n-placeholder="outbound.toPlaceholder"
+                placeholder="e.g. Bern, Bundesplatz"
+              />
+            </div>
+
+            <div class="owptt-field-row owptt-field-row-inline owptt-field-row-number">
+              <div class="owptt-minute-field">
+                <label for="out-walk-minutes" class="ms-font-s" data-i18n="outbound.walkLabel">
+                  Walking time (min)
+                </label>
+                <input
+                  id="out-walk-minutes"
+                  type="number"
+                  min="0"
+                  step="1"
+                  value="15"
+                  class="owptt-input owptt-input-small"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="owptt-actions owptt-actions-compact">
+            <button
+              type="button"
+              id="btn-search-outbound"
+              class="ms-Button ms-Button--hero ms-font-s owptt-button-primary"
+            >
+              <span class="ms-Button-label" data-i18n="outbound.searchButton">
+                Search connections
+              </span>
+            </button>
+          </div>
+
+          <div class="owptt-connections">
+            <table class="owptt-table" aria-describedby="outbound-table-caption">
+              <caption
+                id="outbound-table-caption"
+                class="ms-font-xs owptt-table-caption"
+                data-i18n="outbound.tableCaption"
+              >
+                Return connections from the appointment
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col" data-i18n="connections.departure">Departure</th>
+                  <th scope="col" data-i18n="connections.route">Route</th>
+                  <th scope="col" data-i18n="connections.arrival">Arrival</th>
+                  <th scope="col" data-i18n="connections.duration">Duration</th>
+                </tr>
+              </thead>
+              <tbody id="outbound-connections-body">
+                <tr class="owptt-placeholder-row">
+                  <td colspan="4" class="ms-font-xs owptt-placeholder" data-i18n="outbound.empty">
+                    No connections loaded yet. Please search first.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="owptt-actions owptt-actions-compact">
+            <button
+              type="button"
+              id="btn-create-outbound"
+              class="ms-Button ms-Button--hero ms-font-s owptt-button-secondary"
+            >
+              <span class="ms-Button-label" data-i18n="outbound.insertButton">
+                Insert return journey in calendar
+              </span>
+            </button>
+          </div>
+        </section>
+
+        
+      </div>
+    </main>
+
+    <!-- Compact footer info: copyright, author, license + link -->
+    <div class="owptt-main-footer ms-font-xs" aria-hidden="false">
+      <small>
+        © 2018–2025 Michael Beer · <a href="https://timetable.mbeer.ch" target="_blank" rel="noopener noreferrer">timetable.mbeer.ch</a>
+        · MIT License
+      </small>
+    </div>
+
+    <!-- Settings overlay for favourite stops / display / About... -->
+    <div id="owptt-settings-overlay" class="owptt-settings-overlay" hidden>
+      <div
+        class="owptt-settings-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="owptt-settings-title"
+      >
+        <header class="owptt-settings-header">
+          <h2 id="owptt-settings-title" class="ms-font-m" data-i18n="settings.title">
+            Settings
+          </h2>
+          <button
+            type="button"
+            class="ms-Button ms-Button--icon owptt-settings-close"
+            id="owptt-settings-close"
+            aria-label="Close"
+          >
+            <span class="ms-Icon ms-Icon--Cancel"></span>
+          </button>
+        </header>
+
+
+        <!-- Settings section: Language & Favourite stops -->
+        <section class="owptt-settings-section" id="owptt-settings-favstops">
+
+          <!-- Language selector subsection -->
+          <div class="owptt-settings-subsection">
+            <h3 class="ms-font-xs owptt-settings-subsection-title" data-i18n="settings.language.title">
+              Language
+            </h3>
+            <p class="ms-font-xs owptt-settings-subsection-description" data-i18n="settings.language.description">
+              Choose the display language for the add-in.
+            </p>
+
+            <div class="owptt-field-row">
+              <label for="owptt-language-select" data-i18n="settings.language.label">
+                Display language:
+              </label>
+              <select id="owptt-language-select" class="owptt-input owptt-language-select">
+                <option value="auto" data-i18n="settings.language.auto">Automatic (from Outlook)</option>
+                <option value="en-GB">English</option>
+                <option value="de-CH">Deutsch (Schweiz)</option>
+                <option value="fr-CH">Français (Suisse)</option>
+                <option value="it-CH">Italiano (Svizzera)</option>
+                <option value="rm-CH">Rumantsch (Grischun)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Favourite stops subsection -->
+          <div class="owptt-settings-subsection">
+            <h3 class="ms-font-xs owptt-settings-subsection-title" data-i18n="settings.stops.title">
+              Favourite stops
+            </h3>
+            <p class="ms-font-xs owptt-settings-subsection-description" data-i18n="settings.stops.description">
+              These stops will be suggested in all stop fields. When selected, the walking time will
+              also be updated.
+            </p>
+
+            <div class="owptt-favstops-grid">
+            <table class="owptt-favstops-table">
+              <thead>
+                <tr>
+                  <th data-i18n="settings.stops.column.stop">Stop</th>
+                  <th data-i18n="settings.stops.column.walkMinutes">Distance (minutes)</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="owptt-favstops-tbody">
+                <!-- Rows rendered by JavaScript -->
+              </tbody>
+            </table>
+
+            <div class="owptt-favstops-controls">
+              <button type="button" id="owptt-fav-add" class="ms-Button ms-Button--small">
+                <span data-i18n="settings.stops.button.addRow">Add row</span>
+              </button>
+              <button type="button" id="owptt-fav-move-up" class="ms-Button ms-Button--small">
+                ↑
+              </button>
+              <button type="button" id="owptt-fav-move-down" class="ms-Button ms-Button--small">
+                ↓
+              </button>
+              <button type="button" id="owptt-fav-sort-az" class="ms-Button ms-Button--small">
+                A–Z
+              </button>
+            </div>
+          </div>
+
+          <div class="owptt-favstops-importexport">
+            <h3 class="ms-font-xs" data-i18n="settings.stops.exportTitle">Export / Import</h3>
+            <p class="ms-font-xs" data-i18n="settings.stops.exportDescription">
+              Copy the JSON text below to another PC to take over the list.
+            </p>
+
+            <textarea
+              id="owptt-fav-json"
+              class="owptt-fav-json"
+              rows="5"
+              placeholder='[{"name":"Bern, Bundesplatz","walkMinutes":5}]'
+            ></textarea>
+
+            <div class="owptt-fav-actions">
+              <button type="button" id="owptt-fav-import-btn" class="ms-Button ms-Button--small">
+                <span data-i18n="settings.stops.button.import"> Import from JSON </span>
+              </button>
+            </div>
+            </div>
+          </div>
+        </section>
+
+
+        <footer class="owptt-settings-footer">
+          <button type="button" class="ms-Button" id="owptt-settings-ok">
+            <span data-i18n="settings.close">Close</span>
+          </button>
+        </footer>
+      </div>
+    </div>
+  </body>
+  
+  <!-- Custom suggestion popup (replaces native datalist popup for consistent styling) -->
+  <div id="owptt-suggestions" class="owptt-suggestions" hidden aria-hidden="true"></div>
+</html>

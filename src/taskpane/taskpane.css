@@ -1,0 +1,718 @@
+/*
+ * OutlookSwissPTTimetable — Taskpane layout
+ * Based on the WPF PlanJourneyWindow, optimized for a narrow sidebar.
+ */
+
+/* Basic layout */
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* Sideload notice */
+
+.owptt-sideload {
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.owptt-sideload h2 {
+  margin: 0 0 6px 0;
+}
+
+.owptt-sideload p {
+  margin: 0;
+}
+
+/* Main area in taskpane */
+
+.owptt-main {
+  display: flex;                 /* overridden by JS, initially hidden via rule below */
+  flex-direction: column;
+  align-items: stretch;
+  padding: 8px 10px 12px;
+  box-sizing: border-box;
+  background-color: #ffffff;
+}
+
+/* Frame for actual content */
+
+.owptt-root {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Header */
+
+.owptt-header {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.owptt-header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.owptt-app-subtitle {
+  display: none;
+}
+
+.owptt-app-title {
+  margin: 0;
+  font-weight: 600;
+}
+
+.owptt-app-subtitle {
+  margin: 0;
+  color: #666666;
+}
+
+.owptt-settings-button {
+  border: none;
+  background: transparent;
+  padding: 4px;
+  cursor: pointer;
+}
+
+.owptt-settings-button .ms-Icon {
+  font-size: 18px;
+}
+
+/* Sections */
+
+.owptt-section {
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 10px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-top: 1px solid #e1e1e1;  /* light separation like in grid */
+}
+
+.owptt-section:first-of-type {
+  border-top: none;
+}
+
+.owptt-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.owptt-section-title {
+  margin: 0;
+  font-weight: 600;
+}
+
+/* Compact: hide some section titles */
+.owptt-section-location .owptt-section-title,
+.owptt-section-inbound .owptt-section-title,
+.owptt-section-outbound .owptt-section-title {
+  display: none;
+}
+
+/* Fields */
+
+.owptt-field-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 6px;
+}
+
+.owptt-field-row-inline {
+  max-width: 240px;
+}
+
+.owptt-field-row-number {
+  margin-top: 2px;
+}
+
+/* Grouped station + minutes layout (compact):
+   Single concise declaration replaces earlier duplicates. The fine-tuned
+   overrides appear at the end of the file. */
+.owptt-field-row-group {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  width: 100%;
+}
+.owptt-field-row-group .owptt-field-row {
+  flex: 1 1 auto;
+  min-width: 0;
+  margin: 0;
+}
+.owptt-field-row-group .owptt-field-row-number {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+.owptt-minute-field {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+.owptt-minute-field label {
+  margin: 0;
+  font-size: 13px;
+  text-align: right;
+}
+
+/* Align labels consistently inside grouped rows */
+.owptt-field-row-group .owptt-field-row > label,
+.owptt-field-row-group .owptt-minute-field label {
+  display: block !important;
+  margin: 0 0 4px 0 !important;
+  font-size: 13px !important;
+  line-height: 1.2 !important;
+}
+
+/* Remove any small top margin that could push the minute block down */
+.owptt-field-row-group .owptt-field-row-number {
+  margin-top: 0 !important;
+}
+.owptt-minute-field .owptt-input-small {
+  width: 64px;
+  padding: 4px 6px;
+}
+
+
+.owptt-field-row label {
+  margin-bottom: 2px;
+}
+
+.owptt-input {
+  box-sizing: border-box;
+  padding: 4px 6px;
+  border: 1px solid #c8c8c8;
+  border-radius: 2px;
+  font: inherit;
+}
+
+/* Select fields use same styling as input fields */
+select.owptt-input,
+select.owptt-input-small,
+.owptt-language-select {
+  box-sizing: border-box;
+  padding: 4px 6px;
+  border: 1px solid #c8c8c8;
+  border-radius: 2px;
+  font-size: 13px !important;
+  font-family: inherit;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+/* Smaller font in suggestion lists (favourite stops & autocompletion) */
+#owptt-favorite-stops-list,
+#owptt-favorite-stops-list option,
+#owptt-completion-only-list,
+#owptt-completion-only-list option,
+option.owptt-completion {
+  /* Match input font size for consistent appearance in suggestion popup. */
+  font-size: 13px !important;
+  line-height: 1.25 !important;
+  font-family: inherit !important;
+}
+
+/* Additional selector to target suggestion lists rendered by some hosts
+   (WebView/Chromium) where the datalist popup uses a shadowed listbox. */
+input[list="owptt-favorite-stops-list"],
+input[list="owptt-completion-only-list"],
+input[list="owptt-favorite-stops-list"]::-webkit-input-list-button,
+input[list="owptt-completion-only-list"]::-webkit-input-list-button {
+  font-size: 13px !important;
+}
+
+
+.owptt-input-small {
+  width: 80px;
+}
+
+/* Language selector should be full width like other input fields */
+#owptt-language-select {
+  width: 100%;
+  font-size: 13px !important;
+  line-height: 1.2 !important;
+}
+
+/* Language selector options */
+#owptt-language-select option {
+  font-size: 13px !important;
+}
+
+/* Buttons */
+
+.owptt-button-primary,
+.owptt-button-secondary {
+  margin-top: 4px;
+}
+
+.owptt-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.owptt-actions-compact {
+  justify-content: flex-start;
+}
+
+.owptt-actions-center {
+  justify-content: center;
+}
+
+.ms-Button.ms-Button--hero .ms-Button-label {
+  color: #0078d7;
+}
+
+.ms-Button.ms-Button--hero:hover .ms-Button-label,
+.ms-Button.ms-Button--hero:focus .ms-Button-label {
+  color: #005a9e;
+  cursor: pointer;
+}
+
+/* Text / Notes */
+
+.owptt-note {
+  margin: 0;
+  color: #666666;
+}
+
+.owptt-hint {
+  color: #666666;
+}
+
+.owptt-placeholder {
+  margin: 0;
+  color: #888888;
+}
+
+.owptt-item-info {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* Connections */
+
+.owptt-connections {
+  margin-top: 4px;
+}
+
+/* Table for connections */
+
+.owptt-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.owptt-table caption {
+  text-align: left;
+  margin-bottom: 2px;
+  color: #666666;
+}
+
+.owptt-table th,
+.owptt-table td {
+  border: 1px solid #e1e1e1;
+  padding: 3px 4px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.owptt-table th {
+  background-color: #f2f2f2;
+  font-weight: 600;
+}
+
+.owptt-placeholder-row td {
+  text-align: left;
+}
+/* Initial: hide main content until Office context is ready.
+   taskpane.js then explicitly sets display to 'flex'. */
+.owptt-main {
+  display: none;
+}
+
+/* Row selection in connections grid */
+
+.owptt-connection-row {
+  cursor: pointer;
+}
+
+.owptt-connection-row.owptt-row-selected {
+  background-color: #cde6ff;
+}
+
+/* ------------------------------------------------------------------------- */
+/*   SETTINGS: STANDARD STOP LIST                                            */
+/* ------------------------------------------------------------------------- */
+
+.owptt-settings-overlay[hidden] {
+  display: none;
+}
+
+.owptt-settings-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.owptt-settings-dialog {
+  background: #ffffff;
+  min-width: 320px;
+  max-width: 520px;
+  max-height: 90vh;
+  border-radius: 4px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+}
+
+.owptt-settings-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: #0078d4; /* Outlook-Blau */
+  color: #ffffff;
+}
+
+.owptt-settings-close {
+  padding: 4px;
+}
+
+.owptt-settings-tabs {
+  display: flex;
+  align-items: center;
+  padding: 4px 12px;
+  background: #f3f2f1;
+  gap: 8px;
+  border-bottom: 1px solid #e1dfdd;
+}
+
+.owptt-settings-tab {
+  font-size: 12px;
+  border: none;
+  background: transparent;
+  padding: 4px 6px;
+}
+
+.owptt-settings-tab-active {
+  font-weight: 600;
+  border-bottom: 2px solid #0078d4;
+}
+
+.owptt-settings-tab-disabled {
+  opacity: 0.5;
+}
+
+.owptt-settings-section {
+  padding: 8px 12px 12px;
+  overflow: auto;
+  font-size: 13px;
+}
+
+/* Force consistent font sizing in settings */
+.owptt-settings-section label,
+.owptt-settings-section input,
+.owptt-settings-section select,
+.owptt-settings-section textarea,
+.owptt-settings-section p,
+.owptt-settings-section h3 {
+  font-size: 13px !important;
+}
+
+.owptt-settings-section-header {
+  margin-bottom: 6px;
+}
+
+.owptt-settings-subsection {
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e1dfdd;
+}
+
+.owptt-settings-subsection:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.owptt-settings-subsection-title {
+  font-weight: 600;
+  margin-top: 8px;
+  margin-bottom: 2px;
+}
+
+.owptt-settings-subsection-description {
+  margin-bottom: 6px;
+}
+
+/* Language field styling - match other form fields */
+.owptt-settings-subsection .owptt-field-row label {
+  font-size: 13px !important;
+}
+
+/* Override any inherited font sizes for language selector specifically */
+label[for="owptt-language-select"] {
+  font-size: 13px !important;
+}
+
+.owptt-favstops-grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px 8px;
+  align-items: flex-start;
+}
+
+.owptt-favstops-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 12px;
+}
+
+.owptt-favstops-table th,
+.owptt-favstops-table td {
+  border-bottom: 1px solid #e1dfdd;
+  padding: 2px 4px;
+}
+
+.owptt-favstops-table thead th {
+  font-weight: 600;
+  background: #f3f2f1;
+}
+
+.owptt-fav-row-selected {
+  background-color: #cde6ff;
+}
+
+.owptt-favstops-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.owptt-favstops-importexport {
+  margin-top: 8px;
+}
+
+.owptt-fav-json {
+  width: 100%;
+  box-sizing: border-box;
+  font-family: Consolas, Menlo, Monaco, "Courier New", monospace;
+  font-size: 11px;
+  margin-top: 4px;
+}
+
+.owptt-fav-actions {
+  margin: 4px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+/* Compact footer in the main taskpane */
+.owptt-main-footer {
+  text-align: left;
+  padding: 8px 12px;
+  color: #666666;
+  font-size: 12px;
+}
+
+.owptt-settings-footer {
+  display: flex;
+  justify-content: flex-end;
+  /* match header/tabs side padding so buttons align with dialog content */
+  padding: 8px 12px;
+}
+
+/* FINAL COMPACT LAYOUT OVERRIDES
+   Ensure station input occupies remaining width and minute block is inline to its right.
+   These rules are high-specificity and placed at the end to defeat earlier conflicting rules. */
+.owptt-section-location .owptt-field-row-group,
+.owptt-section-inbound .owptt-field-row-group,
+.owptt-section-outbound .owptt-field-row-group {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: flex-start !important;
+  gap: 10px !important;
+}
+
+.owptt-section-location .owptt-field-row-group > .owptt-field-row,
+.owptt-section-inbound .owptt-field-row-group > .owptt-field-row,
+.owptt-section-outbound .owptt-field-row-group > .owptt-field-row {
+  /* Station container: label above input, take remaining space */
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.owptt-section-location .owptt-field-row-group > .owptt-field-row-number,
+.owptt-section-inbound .owptt-field-row-group > .owptt-field-row-number,
+.owptt-section-outbound .owptt-field-row-group > .owptt-field-row-number {
+  /* Minute container: vertical (label above input), right-aligned */
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-end !important;
+  justify-content: flex-start !important;
+  gap: 4px !important;
+  flex: 0 0 auto !important;
+  width: auto !important;
+  padding-left: 0 !important;
+  margin: 0 !important;
+}
+
+.owptt-section-location .owptt-field-row-group .owptt-minute-field,
+.owptt-section-inbound .owptt-field-row-group .owptt-minute-field,
+.owptt-section-outbound .owptt-field-row-group .owptt-minute-field {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-end !important;
+  gap: 4px !important;
+}
+.owptt-section-location .owptt-field-row-group .owptt-minute-field label,
+.owptt-section-inbound .owptt-field-row-group .owptt-minute-field label,
+.owptt-section-outbound .owptt-field-row-group .owptt-minute-field label {
+  margin: 0 !important;
+  white-space: nowrap !important;
+  font-size: 13px !important;
+  text-align: right !important;
+}
+.owptt-section-location .owptt-field-row-group .owptt-minute-field .owptt-input-small,
+.owptt-section-inbound .owptt-field-row-group .owptt-minute-field .owptt-input-small,
+.owptt-section-outbound .owptt-field-row-group .owptt-minute-field .owptt-input-small {
+  width: 64px !important;
+  margin: 0 !important;
+  padding: 4px 6px !important;
+}
+
+/* Reduce vertical gaps around groups to compact the overall UI */
+.owptt-section-location .owptt-field-row-group,
+.owptt-section-inbound .owptt-field-row-group,
+.owptt-section-outbound .owptt-field-row-group {
+  margin-bottom: 6px !important;
+  padding-bottom: 2px !important;
+}
+
+/* Ensure station labels and minute labels use the same font size */
+.owptt-field-row label,
+.owptt-field-row-group .owptt-minute-field label,
+.owptt-section .owptt-section-title {
+  font-size: 13px !important;
+}
+
+/* Custom suggestion popup (replaces native datalist popup). */
+.owptt-suggestions {
+  position: absolute;
+  z-index: 99999;
+  background: #ffffff;
+  border: 1px solid #c8c8c8;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  border-radius: 3px;
+  min-width: 160px;
+  max-width: 560px;
+  max-height: 280px;
+  overflow-y: auto;
+  font-size: 13px;
+  line-height: 1.3;
+  padding: 4px 0;
+  box-sizing: border-box;
+}
+.owptt-suggestions[hidden] {
+  display: none !important;
+}
+.owptt-suggestion-item {
+  padding: 6px 10px;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.owptt-suggestion-item:hover,
+.owptt-suggestion-item.owptt-selected {
+  background-color: #eef6ff;
+}
+.owptt-suggestion-item small {
+  display: block;
+  color: #666666;
+  font-size: 12px;
+}
+
+/* Error banner shown inline inside the taskpane (compact, dismissible) */
+.owptt-error-container {
+  margin: 8px 0 4px 0;
+}
+.owptt-error-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  background: #fff5f5; /* light red */
+  border: 1px solid #ffb3b3;
+  color: #611a15;
+  padding: 8px 10px;
+  border-radius: 3px;
+  box-sizing: border-box;
+  font-size: 13px;
+}
+.owptt-error-message {
+  flex: 1 1 auto;
+  margin: 0;
+  padding-right: 8px;
+}
+.owptt-error-actions {
+  display: flex;
+  gap: 6px;
+  flex: 0 0 auto;
+}
+.owptt-error-copy,
+.owptt-error-close {
+  background: transparent;
+  border: 1px solid transparent;
+  padding: 4px 6px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.owptt-error-copy:hover,
+.owptt-error-close:hover {
+  background: rgba(0,0,0,0.04);
+}
+.owptt-error-details {
+  margin-top: 6px;
+  display: block;
+  width: 100%;
+  white-space: pre-wrap;
+  font-family: Consolas, Menlo, Monaco, "Courier New", monospace;
+  font-size: 12px;
+  color: #333333;
+}
