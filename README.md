@@ -134,7 +134,7 @@ Currently supported:
 
 ---
 
-## Project Structure (excerpt)
+## Project Structure
 
 ```text
 .
@@ -145,19 +145,23 @@ Currently supported:
 │  ├─ icon-80.png
 │  └─ icon-128.png
 ├─ src/
-│  ├─ taskpane.html
-│  ├─ taskpane.js
+│  ├─ commands/
+│  │  ├─ commands.html
+│  │  └─ commands.js
 │  ├─ services/
 │  │  └─ FahrplanSearchCH.js
-│  └─ i18n/
+│  └─ taskpane/
+│     ├─ taskpane.html
+│     ├─ taskpane.js
+│     ├─ taskpane.css
 │     └─ owpttTranslations.js
 ├─ manifest.xml
 ├─ package.json
-├─ LICENSE               # MIT license for this project (see below)
+├─ webpack.config.js
+├─ babel.config.json
+├─ LICENSE
 └─ LICENSE-icons-lucide.txt
 ```
-
-(Die genaue Struktur kannst du bei Bedarf anpassen, dies ist nur ein Beispiel.)
 
 ---
 
