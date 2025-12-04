@@ -77,7 +77,7 @@ Klicken Sie auf **Suchen** – das System findet Verbindungen, die vor dem Termi
 #### Rückfahrt (vom Termin)
 Ähnlich wie die Hinfahrt: Geben Sie ein, wohin Sie zurück möchten und wie lange Sie zu Fuss brauchen.
 
-![Suchschnittstelle][step-4]
+<img src="/assets/screenshots/step-4.png" alt="Suchschnittstelle" width="60%">
 
 ---
 
@@ -90,7 +90,7 @@ Die Suchergebnisse werden in einer Tabelle angezeigt:
 
 Klicken Sie auf eine Verbindung, um sie auszuwählen (die Zeile wird hervorgehoben).
 
-![Verbindungsauswahl][step-5]
+<img src="/assets/screenshots/step-5.png" alt="Verbindungsauswahl" width="60%">
 
 ---
 
@@ -139,7 +139,7 @@ Um die Sprache manuell zu ändern:
 2. Unter **Sprache** wählen Sie Ihre bevorzugte Sprache aus
 3. Das Add-in wird sofort neu geladen
 
-![Sprach-Einstellung und Favoriten-Verwaltung][step-7]
+<img src="/assets/screenshots/step-7.png" alt="Sprach-Einstellung und Favoriten-Verwaltung" width="60%">
 
 ---
 
@@ -223,7 +223,3 @@ Dieses Add-in ist unter der MIT-Lizenz veröffentlicht.
 [step-1-de]: /assets/screenshots/step-1-de.png "Manifest herunterladen"
 [step-2-de]: /assets/screenshots/step-2-de.png "Outlook Desktop – Add-in Installation"
 [step-3-de]: /assets/screenshots/step-3-de.png "Outlook Web – Add-in Installation"
-[step-4]: /assets/screenshots/step-4.png "Suchschnittstelle"
-[step-5]: /assets/screenshots/step-5.png "Verbindungsauswahl"
-[step-6]: /assets/screenshots/step-6.png "Termin erstellen"
-[step-7]: /assets/screenshots/step-7.png "Sprach-Einstellung und Favoriten-Verwaltung"
