@@ -10,18 +10,6 @@ It uses the [search.ch timetable API](https://search.ch/fahrplan/api) to query r
 
 ---
 
-## Legacy Version
-
-Looking for the classic **Windows-only VSTO add-in**? It's still available at:
-- **Repository**: https://github.com/mbeer/OutlookSwissPTTimetable
-- **Download**: https://timetable.mbeer.ch/setup.exe
-
-⚠️ **Note**: The legacy VSTO version is no longer actively maintained. Critical security fixes may still be applied, but new features will only be added to the Office.js version.
-
-**Why upgrade to Office.js?** The Office.js version offers cross-platform support (Windows, Mac, Web), no installation required, and modern development practices. Simply sideload the manifest file to get started.
-
----
-
 ## Features
 
 - Display **outbound** and **return** connections for the current Outlook appointment.
@@ -182,6 +170,16 @@ Currently supported:
 Bug reports, feature suggestions, and pull requests are welcome!
 
 **Translation contributions**: Help translate the documentation and add support for additional languages. See the Translations section under Configuration for details.
+
+---
+
+## Legacy Version
+
+Looking for the classic **Windows-only VSTO add-in**? It's still available at:
+- **Repository**: https://github.com/mbeer/OutlookSwissPTTimetable
+- **Download**: https://timetable.mbeer.ch/setup.exe
+
+⚠️ **Note**: The legacy VSTO version is no longer actively maintained. Critical security fixes may still be applied, but new features will only be added to the Office.js version.
 
 ---
 
