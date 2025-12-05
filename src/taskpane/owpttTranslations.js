@@ -64,9 +64,18 @@ export const owpttTranslations = {
     "status.invalidTimes": "This connection does not contain valid departure/arrival times.",
     "status.noMailbox": "No mailbox context is available.",
     "status.noDisplayNewAppointmentApi":
-      "This Outlook client cannot open a new appointment window from the current context. Please use the new Outlook or create the appointment manually.",
+      "This Outlook client does not support inserting appointments from this view. Only supported on: Outlook Desktop (Windows), Outlook Web App (Outlook.com), or the new Outlook. Please open the appointment from your calendar in Read mode (when it's already saved) and try again.",
     "status.displayAppointmentFailed": "Opening the appointment window failed.",
     "status.favoritesImported": "Standard stops imported successfully.",
+    // Calendar insertion reference documentation
+    "calendar.info.howToReadMode":
+      "To enter Read mode: Save your appointment, go to your calendar, and open it by clicking on it. You'll see an 'Edit' button (not a text field) if you're in Read mode.",
+
+    // Compose mode limitations
+    "calendar.composeLimited.banner":
+      "Limited mode: This appointment is open in edit mode. Automatic insertion of calendar entries is not available here. You can copy the connection details manually, or save the appointment, then open it again from your calendar in Read mode.",
+    "calendar.composeLimited.buttonTooltip":
+      "Automatic insertion is not available in Compose mode. Please save the appointment and open it from your calendar in Read mode.",
 
     // Error messages
     "error.copyDetails": "Copy details",
@@ -174,9 +183,19 @@ export const owpttTranslations = {
     "status.invalidTimes": "Diese Verbindung enthält keine gültigen Abfahrts- und Ankunftszeiten.",
     "status.noMailbox": "Es ist kein Postfach-Kontext verfügbar.",
     "status.noDisplayNewAppointmentApi":
-      "Dieser Outlook-Client kann aus dem aktuellen Kontext kein neues Terminfenster öffnen. Bitte verwenden Sie das neue Outlook oder erstellen Sie den Termin manuell.",
+      "Dieser Outlook-Client unterstützt das Eintragen von Terminen aus dieser Ansicht nicht. Nur unterstützt auf: Outlook-Desktop (Windows), Outlook-Web-App (Outlook.com) oder das neue Outlook. Bitte öffnen Sie den Termin aus Ihrem Kalender im Lesemodus (wenn er bereits gespeichert ist) und versuchen Sie es erneut.",
     "status.displayAppointmentFailed": "Das Öffnen des Terminfensters ist fehlgeschlagen.",
     "status.favoritesImported": "Standardhaltestellen erfolgreich importiert.",
+
+    // Kalender-Info Referenzdokumentation
+    "calendar.info.howToReadMode":
+      "So gelangen Sie in den Lesemodus: Speichern Sie Ihren Termin, gehen Sie zu Ihrem Kalender und öffnen Sie ihn durch Klicken. Sie sehen einen 'Bearbeiten'-Button (kein Textfeld), wenn Sie im Lesemodus sind.",
+
+    // Einschränkungen im Bearbeitungsmodus
+    "calendar.composeLimited.banner":
+      "Eingeschränkter Modus: Dieser Termin ist im Bearbeitungsmodus geöffnet. Das automatische Eintragen von Kalendereinträgen ist hier nicht verfügbar. Sie können die Verbindungsdetails manuell kopieren oder den Termin speichern und dann erneut aus Ihrem Kalender im Lesemodus öffnen.",
+    "calendar.composeLimited.buttonTooltip":
+      "Das automatische Eintragen ist im Bearbeitungsmodus nicht verfügbar. Bitte speichern Sie den Termin und öffnen Sie ihn aus Ihrem Kalender im Lesemodus.",
 
     // Fehlermeldungen
     "error.copyDetails": "Details kopieren",
@@ -288,11 +307,21 @@ export const owpttTranslations = {
       "Cette correspondance ne contient pas d’horaires de départ/arrivée valables.",
     "status.noMailbox": "Aucun contexte de boîte aux lettres n’est disponible.",
     "status.noDisplayNewAppointmentApi":
-      "Ce client Outlook ne peut pas ouvrir une nouvelle fenêtre de rendez-vous depuis ce contexte. Veuillez utiliser le nouveau Outlook ou créer le rendez-vous manuellement.",
-    "status.displayAppointmentFailed": "L’ouverture de la fenêtre de rendez-vous a échoué.",
+      "Ce client Outlook ne supporte pas l'insertion de rendez-vous à partir de cette vue. Supporté uniquement sur : Outlook Desktop (Windows), Outlook Web App (Outlook.com) ou le nouveau Outlook. Veuillez ouvrir le rendez-vous de votre calendrier en mode lecture (s'il est déjà enregistré) et réessayez.",
+    "status.displayAppointmentFailed": "L'ouverture de la fenêtre de rendez-vous a échoué.",
     "status.favoritesImported": "Arrêts favoris importés avec succès.",
 
-    // Messages d’erreur
+    // Info/aide calendrier de référence
+    "calendar.info.howToReadMode":
+      "Pour passer en mode lecture : enregistrez votre rendez-vous, allez à votre calendrier et ouvrez-le en cliquant dessus. Vous verrez un bouton 'Éditer' (pas un champ de texte) si vous êtes en mode lecture.",
+
+    // Limitations en mode édition
+    "calendar.composeLimited.banner":
+      "Mode limité : Ce rendez-vous est ouvert en mode édition. L'insertion automatique d'entrées de calendrier n'est pas disponible ici. Vous pouvez copier les détails de correspondance manuellement, ou enregistrer le rendez-vous, puis l'ouvrir à nouveau à partir de votre calendrier en mode lecture.",
+    "calendar.composeLimited.buttonTooltip":
+      "L'insertion automatique n'est pas disponible en mode édition. Veuillez enregistrer le rendez-vous et l'ouvrir à partir de votre calendrier en mode lecture.",
+
+    // Messages d'erreur
     "error.copyDetails": "Copier les détails",
     "error.dismiss": "Fermer",
     "error.unexpected":
@@ -400,9 +429,19 @@ export const owpttTranslations = {
     "status.invalidTimes": "Questo collegamento non contiene orari di partenza/arrivo validi.",
     "status.noMailbox": "Nessun contesto di cassetta postale disponibile.",
     "status.noDisplayNewAppointmentApi":
-      "Questo client di Outlook non può aprire una nuova finestra di appuntamento da questo contesto. Utilizzi il nuovo Outlook oppure crei l’appuntamento manualmente.",
-    "status.displayAppointmentFailed": "Apertura della finestra dell’appuntamento non riuscita.",
+      "Questo client Outlook non supporta l'inserimento di appuntamenti da questa vista. Supportato solo su: Outlook Desktop (Windows), Outlook Web App (Outlook.com) o il nuovo Outlook. Apra l'appuntamento dal suo calendario in modalità lettura (se già salvato) e riprovi.",
+    "status.displayAppointmentFailed": "Apertura della finestra dell'appuntamento non riuscita.",
     "status.favoritesImported": "Fermate preferite importate con successo.",
+
+    // Info/aiuto calendario di riferimento
+    "calendar.info.howToReadMode":
+      "Per accedere alla modalità lettura: salvi l'appuntamento, vada al suo calendario e apralo facendo clic su di esso. Vedrà un pulsante 'Modifica' (non un campo di testo) se è in modalità lettura.",
+
+    // Limitazioni in modalità modifica
+    "calendar.composeLimited.banner":
+      "Modalità limitata: Questo appuntamento è aperto in modalità modifica. L'inserimento automatico di voci del calendario non è disponibile qui. Può copiare manualmente i dettagli della connessione, o salvare l'appuntamento, quindi riaprirlo dal suo calendario in modalità lettura.",
+    "calendar.composeLimited.buttonTooltip":
+      "L'inserimento automatico non è disponibile in modalità modifica. Salvi l'appuntamento e lo apra dal suo calendario in modalità lettura.",
 
     // Messaggi di errore
     "error.copyDetails": "Copia dettagli",
@@ -512,11 +551,21 @@ export const owpttTranslations = {
     "status.invalidTimes": "Questa colliaziun na cuntegna betg uras da partenza/arriv validas.",
     "status.noMailbox": "Nagins contexts da posta electronica disponibels.",
     "status.noDisplayNewAppointmentApi":
-      "Quest client Outlook na po betg avrir ina nova fanestra da termin ord quest context. Per plaschair dovra il nov Outlook u creescha il termin manualmain.",
+      "Quest client Outlook na supportescha betg l'inserir da termins ord questa vista. Suportà mo sin: Outlook Desktop (Windows), Outlook Web App (Outlook.com) u il nov Outlook. Per plaschair avra il termin da tes chalender en moduol da lectura (tgi ch'è già giavischà) e emprova anc ina giada.",
     "status.displayAppointmentFailed": "Avrir la fanestra dal termin è reussì betg.",
     "status.favoritesImported": "Staziuns preferidas importadas cun success.",
 
-    // Messaigs d’errur
+    // Agid/infurmaziun chalender da referenza
+    "calendar.info.howToReadMode":
+      "Per entrar en il moduol da lectura: giavischescha tes termin, va a tes chalender e avrescha el tras da cliccar davostagl. Ti vesiş ina butona 'Redacziun' (betg ina campo da text), tgi che ti ess en il moduol da lectura.",
+
+    // Limitaziuns en moduol da redacziun
+    "calendar.composeLimited.banner":
+      "Moduol limitad: Quel termin è aviert en moduol da redacziun. L'inserir automatic da registraziuns da chalender n'è betg disponibel qua. Tu pudessas copiar ils detagls da colliaziun manualmain, u giavischescha il termin, lur avrescha el anc ina giada d'tes chalender en moduol da lectura.",
+    "calendar.composeLimited.buttonTooltip":
+      "L'inserir automatic n'è betg disponibel en moduol da redacziun. Per plaschair giavischescha il termin e avrescha el d'tes chalender en moduol da lectura.",
+
+    // Messaigs d'errur
     "error.copyDetails": "Copiar detagls",
     "error.dismiss": "Serrar",
     "error.unexpected": "In errur imprevischà è succedì durant l’inicialisaziun dal complement.",

@@ -716,3 +716,32 @@ label[for="owptt-language-select"] {
   font-size: 12px;
   color: #333333;
 }
+
+/* Compose mode limited info banner */
+
+.owptt-compose-banner {
+  background-color: #fff4ce;
+  border-left: 4px solid #ffb900;
+  padding: 8px 12px;
+  margin: 0 10px 12px;
+  border-radius: 2px;
+  line-height: 1.4;
+}
+
+.owptt-compose-banner p {
+  margin: 0;
+  color: #333333;
+}
+
+/* Disabled button styling */
+
+.owptt-button-disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.owptt-button-disabled:hover {
+  background-color: inherit;
+}
+
+

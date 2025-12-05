@@ -117,6 +117,50 @@ function applyTranslations() {
 }
 
 /* ------------------------------------------------------------------------- */
+/*   READ MODE VS COMPOSE MODE DETECTION                                    */
+/* ------------------------------------------------------------------------- */
+
+/**
+ * Detect whether the add-in is running in Read mode or Compose mode.
+ * In Read mode, appointment properties are accessed directly (e.g., item.subject is a string).
+ * In Compose mode, appointment properties use .getAsync() callbacks.
+ */
+function detectReadVsComposeMode() {
+  try {
+    const mailbox = Office.context && Office.context.mailbox;
+    const item = mailbox && mailbox.item;
+
+    if (!item) {
+      // No item = unusual state, assume Read mode (safest default)
+      return { isReadMode: true, isComposeMode: false };
+    }
+
+    // Check the concrete type: ReadCompose vs Appointment
+    const itemType = item.itemType;
+    
+    // In Outlook, "message" and "appointment" types have both Read and Compose variants
+    // However, the most reliable check is:
+    // - Read mode: item.subject is a string, item.start is a Date
+    // - Compose mode: item.subject.getAsync is a function, item.start.getAsync is a function
+
+    const subjectHasGetAsync = typeof item.subject?.getAsync === "function";
+    const startHasGetAsync = typeof item.start?.getAsync === "function";
+
+    const isComposeMode = subjectHasGetAsync && startHasGetAsync;
+    const isReadMode = !isComposeMode;
+
+    console.log(
+      `[OWPTT] Mode detected: ${isReadMode ? "READ" : "COMPOSE"} (itemType=${itemType})`
+    );
+
+    return { isReadMode, isComposeMode };
+  } catch (e) {
+    console.warn("[OWPTT] Error detecting mode, assuming Read mode:", e);
+    return { isReadMode: true, isComposeMode: false };
+  }
+}
+
+/* ------------------------------------------------------------------------- */
 /*   STATE                                                                   */
 /* ------------------------------------------------------------------------- */
 
@@ -128,6 +172,9 @@ let owpttOutboundContext = null;
 
 let owpttInboundSelectedIndex = 0;
 let owpttOutboundSelectedIndex = 0;
+
+let owpttIsReadMode = false;
+let owpttIsComposeMode = false;
 
 // Consistent line break for appointment body text
 const OWPTT_NL = "\r\n";
@@ -1025,6 +1072,34 @@ function initLanguageSelector() {
 /*   OFFICE INITIALISATION                                                   */
 /* ------------------------------------------------------------------------- */
 
+/**
+ * Apply UI adjustments when add-in is running in Compose mode.
+ * This disables appointment insertion buttons and shows informational banner.
+ */
+function applyComposeModeUI() {
+  // Show the Compose mode info banner
+  const composeBanner = document.getElementById("owptt-compose-mode-banner");
+  if (composeBanner) {
+    composeBanner.style.display = "block";
+  }
+
+  // Disable/hide the insert buttons
+  const btnCreateInbound = document.getElementById("btn-create-inbound");
+  const btnCreateOutbound = document.getElementById("btn-create-outbound");
+
+  [btnCreateInbound, btnCreateOutbound].forEach((btn) => {
+    if (btn) {
+      btn.disabled = true;
+      btn.title = t(
+        "calendar.composeLimited.buttonTooltip",
+        "Automatic insertion is not available in Compose mode. Please save the appointment and open it from your calendar in Read mode."
+      );
+      // Optionally add a visual class
+      btn.classList.add("owptt-button-disabled");
+    }
+  });
+}
+
 Office.onReady((info) => {
   if (info.host === Office.HostType.Outlook) {
     const sideload = document.getElementById("sideload-msg");
@@ -1044,6 +1119,16 @@ Office.onReady((info) => {
       owpttLanguagePreference === "auto" ? detectedLocale : owpttLanguagePreference;
     owpttCurrentLocale = validateLocaleTranslations(effectiveLocale);
     applyTranslations();
+
+    // Detect Read vs Compose mode
+    const modeInfo = detectReadVsComposeMode();
+    owpttIsReadMode = modeInfo.isReadMode;
+    owpttIsComposeMode = modeInfo.isComposeMode;
+
+    // Apply UI adjustments for Compose mode
+    if (owpttIsComposeMode) {
+      applyComposeModeUI();
+    }
 
     // Version display removed: OWPTT_APP_VERSION no longer used
 
@@ -1785,6 +1870,17 @@ function setSelectedConnection(direction, index) {
 /* ------------------------------------------------------------------------- */
 
 function createInboundAppointmentFromSelection() {
+  // Defensive check: prevent appointment creation in Compose mode
+  if (owpttIsComposeMode) {
+    showStatus(
+      t(
+        "status.noDisplayNewAppointmentApi",
+        "This Outlook client cannot open a new appointment window from the current context. Please use the new Outlook or create the appointment manually."
+      )
+    );
+    return;
+  }
+
   if (!owpttInboundConnections || owpttInboundConnections.length === 0) {
     showStatus(t("status.noConnectionsYet", "Please search connections first."));
     return;
@@ -1801,6 +1897,17 @@ function createInboundAppointmentFromSelection() {
 }
 
 function createOutboundAppointmentFromSelection() {
+  // Defensive check: prevent appointment creation in Compose mode
+  if (owpttIsComposeMode) {
+    showStatus(
+      t(
+        "status.noDisplayNewAppointmentApi",
+        "This Outlook client cannot open a new appointment window from the current context. Please use the new Outlook or create the appointment manually."
+      )
+    );
+    return;
+  }
+
   if (!owpttOutboundConnections || owpttOutboundConnections.length === 0) {
     showStatus(t("status.noConnectionsYet", "Please search connections first."));
     return;

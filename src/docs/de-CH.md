@@ -149,6 +149,43 @@ Um die Sprache manuell zu ändern:
 
 ---
 
+## Einschränkungen beim Eintragen in den Kalender
+
+### Unterstützte Outlook-Varianten
+
+Das Eintragen von Fahrten direkt in den Kalender funktioniert auf folgenden Plattformen:
+- ✅ **Outlook für Windows (Desktop)** – vollständig unterstützt
+- ✅ **Outlook im Web (Outlook.com, Office 365)** – vollständig unterstützt
+- ✅ **Neuer Outlook** (Preview) – vollständig unterstützt
+- ❌ **Outlook für macOS** – derzeit nicht unterstützt
+- ❌ **Outlook für iOS/Android (Mobilgeräte)** – nicht unterstützt
+
+### Lesemodus vs. Bearbeitungsmodus
+
+Das Add-in kann Fahrten nur in den Kalender eintragen, wenn der Termin sich im **Lesemodus** befindet. Das ist der Fall, wenn der Termin bereits gespeichert wurde und Sie ihn aus Ihrem Kalender öffnen.
+
+**Lesemodus (funktioniert):**
+- Der Termin wurde bereits gespeichert
+- Sie öffnen ihn aus der Kalenderansicht
+- Sie sehen einen **„Bearbeiten"** -Button statt direkt bearbeitbarer Textfelder
+- Das Add-in kann Fahrten direkt in den Kalender eintragen
+
+**Bearbeitungsmodus (funktioniert nicht):**
+- Sie erstellen einen neuen Termin
+- Sie bearbeiten einen bestehenden Termin (Entwurf)
+- Der Termin wurde noch nicht gespeichert
+- Das Add-in kann keine Fahrten eintragen
+
+### Wie Sie in den Lesemodus gelangen
+
+1. **Speichern Sie den Termin**, auf den sich die Reiseplanung beziehen soll
+2. **Öffnen Sie Ihren Kalender** in Outlook
+3. **Klicken Sie auf den gespeicherten Termin**, um ihn zu öffnen
+4. **Überprüfen Sie, dass Sie im Lesemodus sind**: Sie sollten einen „Bearbeiten"-Button sehen (kein Textfeld zum direkten Bearbeiten)
+5. **Jetzt können Sie das Add-in nutzen** und Fahrten in den Kalender eintragen
+
+---
+
 ## Fehlerbehebung
 
 ### Das Add-in wird nicht angezeigt
