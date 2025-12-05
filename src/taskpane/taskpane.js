@@ -1078,9 +1078,9 @@ function initLanguageSelector() {
  */
 function applyComposeModeUI() {
   // Show the Compose mode info banner
-  const composeBanner = document.getElementById("owptt-compose-mode-banner");
+  const composeBanner = document.getElementById("owppt-compose-mode-banner");
   if (composeBanner) {
-    composeBanner.style.display = "block";
+    composeBanner.classList.add("owppt-visible");
   }
 
   // Disable/hide the insert buttons

@@ -719,13 +719,18 @@ label[for="owptt-language-select"] {
 
 /* Compose mode limited info banner */
 
-.owptt-compose-banner {
+.owppt-compose-banner {
+  display: none;
   background-color: #fff4ce;
   border-left: 4px solid #ffb900;
   padding: 8px 12px;
   margin: 0 10px 12px;
   border-radius: 2px;
   line-height: 1.4;
+}
+
+.owppt-compose-banner.owppt-visible {
+  display: block;
 }
 
 .owptt-compose-banner p {
