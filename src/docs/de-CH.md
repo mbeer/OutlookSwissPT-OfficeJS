@@ -113,7 +113,7 @@ Es wird ein Fenster zur Erstellung eines neuen Termins eröffnet, welches mit di
 
 <img src="/assets/screenshots/step-6.png" alt="Termin in Kalender eintragen" width="60%">
 
-⚠️ **Hinweis**: Leider ist es aufgrund von technischen Restriktionen von Outlook nicht in jeder Situation möglich, das Fenster zur Erstellung eines neuen Termins anzuzeigen. In diesem Fall muss der neue Termin manuell angelegt werden. Es laufen Abklärungen dazu, wie dieses Problem gelöst werden kann.
+⚠️ **Hinweis**: Das automatische Öffnen des Terminfensters funktioniert nur, wenn sich der Bezugstermin im **Lesemodus** befindet (siehe Abschnitt „Einschränkungen beim Eintragen in den Kalender" oben). Falls Sie sich im Bearbeitungsmodus befinden, speichern Sie den Termin zuerst und öffnen Sie ihn erneut aus dem Kalender. Alternativ können Sie die Verbindungsinformationen manuell in einen neuen Termin kopieren.
 
 ---
 
