@@ -1238,19 +1238,6 @@ Office.onReady((info) => {
       btnCreateOutbound.onclick = () => createOutboundAppointmentFromSelection();
     }
 
-    // Display appointment info once when loading
-    run().catch((e) => {
-      console.error("initial run() failed:", e);
-      try {
-        showError(
-          t("error.unexpected", "An unexpected error occurred while initialising the add-in."),
-          { details: e && (e.stack || e.toString()) }
-        );
-      } catch {
-        // ignore
-      }
-    });
-
     // Global error handlers to surface runtime errors in the inline banner
     window.addEventListener("error", (ev) => {
       try {
@@ -1278,46 +1265,6 @@ Office.onReady((info) => {
     });
   }
 });
-
-/* ------------------------------------------------------------------------- */
-/*   DISPLAY APPOINTMENT INFO                                              */
-/* ------------------------------------------------------------------------- */
-
-export async function run() {
-  const infoLabel = document.getElementById("item-info");
-  if (!infoLabel) {
-    return;
-  }
-  infoLabel.innerHTML = "";
-
-  let itemInfo;
-  try {
-    itemInfo = await getCurrentItemInfo();
-  } catch (e) {
-    console.error("getCurrentItemInfo failed:", e);
-    showStatus(t("status.noItem", "Could not read appointment information from Outlook."));
-    return;
-  }
-
-  const { subject, location, start, end } = itemInfo;
-
-  const startText = formatDateTime(start);
-  const endText = formatDateTime(end);
-
-  const lines = [
-    `${t("item.subjectLabel", "Subject")}: ${subject || ""}`,
-    `${t("item.locationLabel", "Location")}: ${location || ""}`,
-    `${t("item.startLabel", "Start")}: ${startText}`,
-    `${t("item.endLabel", "End")}: ${endText}`,
-  ];
-
-  lines.forEach((line, index) => {
-    if (index > 0) {
-      infoLabel.appendChild(document.createElement("br"));
-    }
-    infoLabel.appendChild(document.createTextNode(line));
-  });
-}
 
 /* ------------------------------------------------------------------------- */
 /*   HELPER FUNCTIONS FOR OUTLOOK CONTEXT                                  */

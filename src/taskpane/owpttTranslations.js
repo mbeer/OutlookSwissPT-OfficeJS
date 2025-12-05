@@ -11,9 +11,6 @@ export const owpttTranslations = {
     "sideload.text": "Please sideload the add-in in Outlook to display the timetable query.",
     "sideload.link": "Learn more",
 
-    "appointment.title": "Current appointment",
-    "appointment.refreshButton": "Refresh appointment data",
-
     "meetingLocation.title": "Stop near meeting location",
     "meetingLocation.stationLabel": "Stop at meeting location:",
     "meetingLocation.stationPlaceholder": "e.g. Bern, Bundesplatz",
@@ -130,9 +127,6 @@ export const owpttTranslations = {
     "sideload.text": "Bitte laden Sie das Add-in in Outlook, um die Fahrplanabfrage anzuzeigen.",
     "sideload.link": "Weitere Informationen",
 
-    "appointment.title": "Aktueller Termin",
-    "appointment.refreshButton": "Termindaten aktualisieren",
-
     "meetingLocation.title": "Haltestelle beim Terminort",
     "meetingLocation.stationLabel": "Haltestelle beim Terminort:",
     "meetingLocation.stationPlaceholder": "z. B. Bern, Bundesplatz",
@@ -248,11 +242,8 @@ export const owpttTranslations = {
 
     "sideload.title": "Complément pas encore chargé",
     "sideload.text":
-      "Veuillez charger le complément dans Outlook pour afficher la recherche d’horaire.",
+      "Veuillez charger le complément dans Outlook pour afficher la recherche d'horaire.",
     "sideload.link": "En savoir plus",
-
-    "appointment.title": "Rendez-vous actuel",
-    "appointment.refreshButton": "Actualiser les données du rendez-vous",
 
     "meetingLocation.title": "Arrêt à proximité du rendez-vous",
     "meetingLocation.stationLabel": "Arrêt au lieu du rendez-vous :",
@@ -376,10 +367,7 @@ export const owpttTranslations = {
       "Carichi il componente aggiuntivo in Outlook per visualizzare la ricerca orario.",
     "sideload.link": "Maggiori informazioni",
 
-    "appointment.title": "Appuntamento attuale",
-    "appointment.refreshButton": "Aggiorna dati dell’appuntamento",
-
-    "meetingLocation.title": "Fermata vicino al luogo dell’appuntamento",
+    "meetingLocation.title": "Fermata vicino al luogo dell'appuntamento",
     "meetingLocation.stationLabel": "Fermata presso il luogo dell’appuntamento:",
     "meetingLocation.stationPlaceholder": "p. es. Köniz, Lerbermatt",
     "meetingLocation.walkLabel": "Tempo a piedi (min):",
@@ -495,11 +483,8 @@ export const owpttTranslations = {
 
     "sideload.title": "Complement anc betg chargià",
     "sideload.text":
-      "Per plaschair chargia il complement en Outlook per mussar la retschertga d’urarei.",
+      "Per plaschair chargia il complement en Outlook per mussar la retschertga d'urarei.",
     "sideload.link": "Ulteriuras infurmaziuns",
-
-    "appointment.title": "Termin actual",
-    "appointment.refreshButton": "Actualisar infurmaziuns dal termin",
 
     "meetingLocation.title": "Sosta datiers dal lieu dal termin",
     "meetingLocation.stationLabel": "Sosta tar il lieu dal termin:",
