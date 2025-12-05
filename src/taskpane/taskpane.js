@@ -1120,6 +1120,16 @@ Office.onReady((info) => {
     owpttCurrentLocale = validateLocaleTranslations(effectiveLocale);
     applyTranslations();
 
+    // Display build info in the footer
+    try {
+      const buildDate = new Date(OWPTT_BUILD_DATE).toLocaleString("de-CH");
+      const version = OWPTT_BUILD_VERSION;
+      document.getElementById("owppt-build-info").textContent = `v${version} (${buildDate})`;
+    } catch (e) {
+      console.warn("[OWPTT] Error displaying build info:", e);
+      document.getElementById("owppt-build-info").textContent = "v?.?.?";
+    }
+
     // Detect Read vs Compose mode
     const modeInfo = detectReadVsComposeMode();
     owpttIsReadMode = modeInfo.isReadMode;
