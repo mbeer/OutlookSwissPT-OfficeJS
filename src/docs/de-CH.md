@@ -117,6 +117,22 @@ Es wird ein Fenster zur Erstellung eines neuen Termins eröffnet, welches mit di
 
 ---
 
+### Fahrplanabfrage-Button an die Kalender-Symbolleiste anheften
+
+Im neuen Outlook im Web und im neuen Outlook für Windows kann der Add-in-Button zunächst nur im Menü **Weitere Apps (…)** im Kalenderformular statt direkt in der Symbolleiste angezeigt werden.
+
+Sie können den Button an die Kalender-Symbolleiste anheften, um ihn immer sichtbar zu machen:
+
+1. Öffnen Sie einen beliebigen Kalender-Termin.
+2. Klicken Sie auf das **Einstellungen**-Zahnrad in der oberen rechten Ecke.
+3. Gehen Sie zu **Kalender → Aktionen anpassen**.
+4. Im Abschnitt **Kalenderoberfläche** (Symbolleiste) aktivieren Sie das Kontrollkästchen für das Add-in (z.B. «Fahrplanabfrage»).
+5. Speichern Sie Ihre Änderungen und laden Sie Outlook ggf. neu.
+
+Der Add-in-Button wird nun direkt in der Kalender-Symbolleiste angezeigt, solange ausreichend Platz vorhanden ist. Falls das Outlook-Fenster sehr schmal ist, kann Outlook den Button automatisch wieder in das Menü **Weitere Apps (…)** verschieben.
+
+---
+
 ## Einstellungen
 
 ### Favoriten-Haltestellen
