@@ -28,7 +28,7 @@ Das Add-in wird über eine Manifest-Datei installiert. Laden Sie die Datei wie f
 3. Wählen Sie **Speichern unter** (oder **Save as** in Englisch)
 4. Speichern Sie die Datei als `manifest.xml` auf Ihrem Computer (z.B. im Downloads-Ordner)
 
-![Manifest-Datei herunterladen mit "Speichern unter"][step-1-de]
+![Manifest-Datei herunterladen mit «Speichern unter»][step-1-de]
 
 *Hinweis: Die Manifest-Datei ist eine XML-Datei, die Outlook mitteilt, wo es die Add-in-Komponenten findet.*
 
@@ -57,7 +57,7 @@ Nach erfolgreicher Installation sollte das Add-in in Outlook verfügbar sein, we
 
 Öffnen Sie einen Kalender-Termin in Outlook (existierend oder neu erstellt). 
 
-**Wichtig:** Speichern Sie neue Termine zuerst (Strg+S oder klicken Sie auf "Speichern"), damit das Add-in korrekt funktioniert.
+**Wichtig:** Speichern Sie neue Termine zuerst (Strg+S oder klicken Sie auf «Speichern»), damit das Add-in korrekt funktioniert.
 
 Klicken Sie in der Outlook-Menüleiste auf die Schaltfläche **Fahrplanabfrage** – das Add-in-Fenster wird daraufhin in der Seitenleiste geöffnet.
 
@@ -103,8 +103,8 @@ Klicken Sie auf eine Verbindung, um sie auszuwählen (die Zeile wird hervorgehob
 Nachdem Sie eine Verbindung ausgewählt haben, klicken Sie auf **Hinreise in Kalender eintragen** (für die Hinfahrt) oder **Rückreise in Kalender eintragen** (für die Rückfahrt).
 
 Das Add-in erstellt automatisch einen Kalender-Termin mit:
-- **Titel**: "Transfer [Von] – [Nach]"
-- **Ort**: Emoji-Kette der Route (z.B. "🚶‍➡️15' 🚆S2 🚍130")
+- **Titel**: «Transfer [Von] – [Nach]»
+- **Ort**: Emoji-Kette der Route (z.B. «🚶‍➡️15' 🚆S2 🚍130»)
 - **Startzeit**: Abfahrtszeit (minus Gehzeit)
 - **Endzeit**: Ankunftszeit (plus Gehzeit)
 - **Beschreibung**: Detaillierte Routeninformation mit allen Haltestellen
@@ -113,7 +113,7 @@ Es wird ein Fenster zur Erstellung eines neuen Termins eröffnet, welches mit di
 
 <img src="/assets/screenshots/step-6.png" alt="Termin in Kalender eintragen" width="60%">
 
-⚠️ **Hinweis**: Das automatische Öffnen des Terminfensters funktioniert nur, wenn sich der Bezugstermin im **Lesemodus** befindet (siehe Abschnitt „Einschränkungen beim Eintragen in den Kalender" oben). Falls Sie sich im Bearbeitungsmodus befinden, speichern Sie den Termin zuerst und öffnen Sie ihn erneut aus dem Kalender. Alternativ können Sie die Verbindungsinformationen manuell in einen neuen Termin kopieren.
+⚠️ **Hinweis**: Das automatische Öffnen des Terminfensters funktioniert nur, wenn sich der Bezugstermin im **Lesemodus** befindet (siehe Abschnitt «Einschränkungen beim Eintragen in den Kalender» unten). Falls Sie sich im Bearbeitungsmodus befinden, speichern Sie den Termin zuerst und öffnen Sie ihn erneut aus dem Kalender. Alternativ können Sie die Verbindungsinformationen manuell in einen neuen Termin kopieren.
 
 ---
 
@@ -167,7 +167,7 @@ Das Add-in kann Fahrten nur in den Kalender eintragen, wenn der Termin sich im *
 **Lesemodus (funktioniert):**
 - Der Termin wurde bereits gespeichert
 - Sie öffnen ihn aus der Kalenderansicht
-- Sie sehen einen **„Bearbeiten"** -Button statt direkt bearbeitbarer Textfelder
+- Sie sehen einen «Bearbeiten»-Button statt direkt bearbeitbarer Textfelder
 - Das Add-in kann Fahrten direkt in den Kalender eintragen
 
 **Bearbeitungsmodus (funktioniert nicht):**
@@ -181,7 +181,7 @@ Das Add-in kann Fahrten nur in den Kalender eintragen, wenn der Termin sich im *
 1. **Speichern Sie den Termin**, auf den sich die Reiseplanung beziehen soll
 2. **Öffnen Sie Ihren Kalender** in Outlook
 3. **Klicken Sie auf den gespeicherten Termin**, um ihn zu öffnen
-4. **Überprüfen Sie, dass Sie im Lesemodus sind**: Sie sollten einen „Bearbeiten"-Button sehen (kein Textfeld zum direkten Bearbeiten)
+4. **Überprüfen Sie, dass Sie im Lesemodus sind**: Sie sollten einen «Bearbeiten»-Button sehen (kein Textfeld zum direkten Bearbeiten)
 5. **Jetzt können Sie das Add-in nutzen** und Fahrten in den Kalender eintragen
 
 ---
