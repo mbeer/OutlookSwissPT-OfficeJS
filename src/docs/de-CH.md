@@ -61,7 +61,7 @@ Nach erfolgreicher Installation sollte das Add-in in Outlook verfügbar sein, we
 
 Klicken Sie in der Outlook-Menüleiste auf die Schaltfläche **Fahrplanabfrage** – das Add-in-Fenster wird daraufhin in der Seitenleiste geöffnet.
 
-<img src="/assets/screenshots/step-3.png" alt="Fahrplanabfrage-Button in der Ribbon-Leiste" width="60%">
+<img src="/assets/screenshots/step-3-de.png" alt="Fahrplanabfrage-Button in der Ribbon-Leiste" width="60%">
 
 ---
 
