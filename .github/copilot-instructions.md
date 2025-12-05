@@ -50,8 +50,8 @@ All global state in `taskpane.js`:
 - `ConnectionsRequest` class: encapsulates search parameters (from, to, dateTime, isArrivalTime, limit)
 - `getConnectionsAsync()`: returns `ConnectionsResponse` with parsed `Connection[]`
 - Each `Connection` has `Legs[]` (segments) with emoji rendering methods:
-  - `toEmojiSummary()` – detailed with times: "Bern (↗️14:15, 🚆 S2) → Lugano (↘️14:40) · (🚶‍➡️6')"
-  - `toEmojiRouteChain()` – compact: "🚆S2🚶‍➡️6'🚍11"
+  - `toEmojiSummary()` – detailed with times: "Bern (↗️14:15, 🚆 S2) → Lugano (↘️14:40) · (🚶‍➡️6′)"
+  - `toEmojiRouteChain()` – compact: "🚆S2🚶‍➡️6′🚍11"
 - **Do NOT** construct URLs directly; use `ConnectionsRequest._buildUrl()` for debugging
 
 ### 4. **Workflow: Search → Render → Create Appointment**
@@ -92,16 +92,24 @@ This is the most error-prone aspect of the codebase. The add-in must work in bot
 - API returns: `"YYYY-MM-dd HH:mm:ss"` string format → parsed by `parseSearchChDateTime()`
 - Stored internally as native `Date` objects
 - Display: `formatTime(date)` → "HH:mm", `formatDateTime(date)` → "dd/mm/yyyy HH:mm"
-- Duration: `formatDuration(depDate, arrDate)` → "2h 28'" (human-readable)
+- Duration: `formatDuration(depDate, arrDate)` → "2h 28′" (human-readable)
 - When building requests, format via `formatDateCH()` and `formatTime()`
 
 ### 8. **Emoji Route Chains** (New Pattern)
 Instead of text-based routes, connections render as visual emoji chains:
 - Transport type: 🚆 (train), 🚍 (bus), 🚊 (tram), ⛴️ (ship)
-- Walking: 🚶‍➡️XX' (minutes rounded)
+- Walking: 🚶‍➡️XX′ (minutes rounded, use U+2032 prime symbol, not apostrophe)
 - Arrows: ↗️ (departure), ↘️ (arrival)
 - Time: HH:mm in 24h format
-- Example appointment body: `(🚶‍➡️15') · 🚆S2 (↗️14:15, S2) → Lugano (↘️14:45) · (🚶‍➡️10')`
+- Example appointment body: `(🚶‍➡️15′) · 🚆S2 (↗️14:15, S2) → Lugano (↘️14:45) · (🚶‍➡️10′)`
+
+### 9. **Typographic Characters Standard**
+All text must use correct Unicode typographic characters for professional appearance:
+- **Apostrophes in contractions**: Use U+2019 (') for English "you'll", "it's", French "l'insertion", "d'horaire", German "Bearbeiten-Button"
+- **Minutes markers**: Use U+2032 (′) for time/duration like "15′ walking time", "2h 28′ duration" (NOT the ASCII straight apostrophe `'`)
+- **Quotation marks**: Use U+2018/U+2019 (' ') for single quotes around button/menu names (e.g., 'Edit', 'Liste importieren')
+- **Always verify** when adding new text that apostrophes and minutes use the correct characters
+- Search files for straight apostrophes `'` to catch mistakes; should only appear in code strings, comments explaining the difference
 
 ### 9. **Diagnostics Section**
 - Hidden by default; toggled via settings checkbox (`owptt-display-show-diagnostics`)

@@ -2056,3 +2056,4 @@ function createTravelAppointment({ start, end, subject, location, body }) {
     });
   }
 }
+

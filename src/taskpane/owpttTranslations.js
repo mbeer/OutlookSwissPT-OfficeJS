@@ -61,12 +61,12 @@ export const owpttTranslations = {
     "status.invalidTimes": "This connection does not contain valid departure/arrival times.",
     "status.noMailbox": "No mailbox context is available.",
     "status.noDisplayNewAppointmentApi":
-      "This Outlook client does not support inserting appointments from this view. Only supported on: Outlook Desktop (Windows), Outlook Web App (Outlook.com), or the new Outlook. Please open the appointment from your calendar in Read mode (when it's already saved) and try again.",
+      "This Outlook client does not support inserting appointments from this view. Only supported on: Outlook Desktop (Windows), Outlook Web App (Outlook.com), or the new Outlook. Please open the appointment from your calendar in Read mode (when it’s already saved) and try again.",
     "status.displayAppointmentFailed": "Opening the appointment window failed.",
     "status.favoritesImported": "Standard stops imported successfully.",
     // Calendar insertion reference documentation
     "calendar.info.howToReadMode":
-      "To enter Read mode: Save your appointment, go to your calendar, and open it by clicking on it. You'll see an 'Edit' button (not a text field) if you're in Read mode.",
+      "To enter Read mode: Save your appointment, go to your calendar, and open it by clicking on it. You’ll see an ‘Edit’ button (not a text field) if you’re in Read mode.",
 
     // Compose mode limitations
     "calendar.composeLimited.banner":
@@ -109,7 +109,7 @@ export const owpttTranslations = {
 
     "settings.stops.exportTitle": "Export / import",
     "settings.stops.exportDescription":
-      "To export, copy the content of the field below. To import on another PC, paste the copied content into this field and click 'Import list'.",
+      "To export, copy the content of the field below. To import on another PC, paste the copied content into this field and click \u2018Import list\u2019.",
     "settings.stops.button.import": "Import list",
 
     "settings.close": "Close",
@@ -183,7 +183,7 @@ export const owpttTranslations = {
 
     // Kalender-Info Referenzdokumentation
     "calendar.info.howToReadMode":
-      "So gelangen Sie in den Lesemodus: Speichern Sie Ihren Termin, gehen Sie zu Ihrem Kalender und öffnen Sie ihn durch Klicken. Sie sehen einen 'Bearbeiten'-Button (kein Textfeld), wenn Sie im Lesemodus sind.",
+      "So gelangen Sie in den Lesemodus: Speichern Sie Ihren Termin, gehen Sie zu Ihrem Kalender und öffnen Sie ihn durch Klicken. Sie sehen einen ‘Bearbeiten’-Button (kein Textfeld), wenn Sie im Lesemodus sind.",
 
     // Einschränkungen im Bearbeitungsmodus
     "calendar.composeLimited.banner":
@@ -226,7 +226,7 @@ export const owpttTranslations = {
 
     "settings.stops.exportTitle": "Export / Import",
     "settings.stops.exportDescription":
-      "Zum Exportieren kopiere den Inhalt des folgenden Feldes. Zum Importieren auf einem anderen PC füge den kopierten Inhalt in dieses Feld ein und klicke auf 'Liste importieren'.",
+      "Zum Exportieren kopiere den Inhalt des folgenden Feldes. Zum Importieren auf einem anderen PC f\u00fcge den kopierten Inhalt in dieses Feld ein und klicke auf \u2018Liste importieren\u2019.",
     "settings.stops.button.import": "Liste importieren",
 
     "settings.close": "Schliessen",

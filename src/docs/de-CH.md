@@ -104,7 +104,7 @@ Nachdem Sie eine Verbindung ausgewählt haben, klicken Sie auf **Hinreise in Kal
 
 Das Add-in erstellt automatisch einen Kalender-Termin mit:
 - **Titel**: «Transfer [Von] – [Nach]»
-- **Ort**: Emoji-Kette der Route (z.B. «🚶‍➡️15' 🚆S2 🚍130»)
+- **Ort**: Emoji-Kette der Route (z.B. «🚶‍➡️15′ 🚆S2 🚍130»)
 - **Startzeit**: Abfahrtszeit (minus Gehzeit)
 - **Endzeit**: Ankunftszeit (plus Gehzeit)
 - **Beschreibung**: Detaillierte Routeninformation mit allen Haltestellen

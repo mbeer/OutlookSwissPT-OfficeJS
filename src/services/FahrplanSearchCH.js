@@ -421,10 +421,10 @@ export class Connection {
         }
 
         const minutes = Math.round(runningSecs / 60);
-        const minutesStr = minutes ? `${minutes}’` : "";
+        const minutesStr = minutes ? `${minutes}′` : "";
 
-        // (🚶‍➡️10’)
-        segments.push(`(🚶‍➡️${minutesStr})`);
+        // (🚶‍➡️10′)
+        segments.push(`(🚶‍➡️${minutesStr}`);
         // Only mention the destination stop separately for the final walk leg
         if (!nextLeg && toName) {
           segments.push(toName);
@@ -488,7 +488,7 @@ export class Connection {
         }
 
         const minutes = Math.round(runningSecs / 60);
-        const minutesStr = minutes ? `${minutes}’` : "";
+        const minutesStr = minutes ? `${minutes}′` : "";
         chain += `🚶‍➡️${minutesStr}`;
       } else {
         // Public-transport leg (train, bus, tram, ship, ...)
