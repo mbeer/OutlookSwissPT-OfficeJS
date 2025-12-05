@@ -105,7 +105,7 @@ Instead of text-based routes, connections render as visual emoji chains:
 
 ### 9. **Typographic Characters Standard**
 All text must use correct Unicode typographic characters for professional appearance:
-- **Apostrophes in contractions**: Use U+2019 (') for English "you'll", "it's", French "l'insertion", "d'horaire", German "Bearbeiten-Button"
+- **Apostrophes in contractions**: Use U+2019 (') for English "you'll", "it's", French "l'insertion", "d'horaire"
 - **Minutes markers**: Use U+2032 (′) for time/duration like "15′ walking time", "2h 28′ duration" (NOT the ASCII straight apostrophe `'`)
 - **Quotation marks**: 
   - English/French/Italian: Use U+2018/U+2019 (' ') for single quotes around button/menu names (e.g., 'Edit', 'Importer la liste')
