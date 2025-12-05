@@ -14,7 +14,7 @@ It uses the [search.ch timetable API](https://search.ch/fahrplan/api) to query r
 
 **User Guide (German)**: [Fahrplanabfrage für Outlook – Benutzerhandbuch](src/docs/de-CH.md)
 
-Additional language documentation coming soon. Contributions welcome!
+Additional language documentation pending. Contributions welcome!
 
 ---
 
@@ -25,7 +25,7 @@ Additional language documentation coming soon. Contributions welcome!
 - User-defined **favourite stops** with walking times.
 - Autocompletion for stops using the search.ch completion API.
 - Compact connection tables with duration, route chain and easy selection of the desired connection.
-- Works in Outlook for Windows (and, where supported, in the new Outlook / Outlook on the web).
+- Works in Outlook for Windows and, where supported, in the new Outlook / Outlook on the web.
 
 ---
 
@@ -34,7 +34,7 @@ Additional language documentation coming soon. Contributions welcome!
 - Outlook Add-in (Office.js)
 - HTML / CSS / JavaScript (no framework)
 - [search.ch timetable API](https://search.ch/fahrplan/api)
-- Icons based on [Lucide](https://lucide.dev) (see below for licensing)
+- Icon based on [Lucide](https://lucide.dev) (see below for licensing)
 
 ---
 
@@ -110,7 +110,7 @@ Then deploy the built files to your web server and redistribute / upload the upd
 
 ### search.ch API
 
-This add-in uses the search.ch timetable and completion APIs.  
+This add-in uses the search.ch route search and completion APIs.  
 No API key is required. Please comply with the terms and conditions of search.ch.
 
 ### Default / Favourite Stops
@@ -135,7 +135,7 @@ Currently supported:
 - German (Switzerland) - de-CH
 - French (Switzerland) - fr-CH
 - Italian (Switzerland) - it-CH
-- Romansh - rm-CH
+- Romansh (Switzerland) - rm-CH
 - English (UK) - en-GB
 
 **Adding new languages**: Copy the en-GB object from `owpttTranslations` and translate all values to the target language. Add locale override to `manifest.xml` under DisplayName and Description sections. Create installation screenshots (steps 1-3) for the new locale.
@@ -178,6 +178,8 @@ Currently supported:
 Bug reports, feature suggestions, and pull requests are welcome!
 
 **Translation contributions**: Help translate the documentation and add support for additional languages. See the Translations section under Configuration for details.
+
+⚠️ **Translation Quality Note**: The initial translations for fr-CH, it-CH, and rm-CH were generated using AI language models and may contain inaccuracies or lack precision in context-specific terminology. Reviews and corrections by native speakers are highly appreciated and welcome via pull requests.
 
 ---
 

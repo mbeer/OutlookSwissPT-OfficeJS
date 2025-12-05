@@ -55,10 +55,13 @@ Nach erfolgreicher Installation sollte das Add-in in Outlook verfügbar sein, we
 
 ### Schritt 1: Termin öffnen
 
-Öffnen Sie einen Kalender-Termin in Outlook (existierend oder neu erstellt). Das Add-in-Fenster wird in der Seitenleiste angezeigt und zeigt automatisch:
-- Termin-Titel
-- Ort
-- Anfang- und Endzeit
+Öffnen Sie einen Kalender-Termin in Outlook (existierend oder neu erstellt). 
+
+**Wichtig:** Speichern Sie neue Termine zuerst (Strg+S oder klicken Sie auf "Speichern"), damit das Add-in korrekt funktioniert.
+
+Klicken Sie in der Outlook-Menüleiste auf die Schaltfläche **Fahrplanabfrage** – das Add-in-Fenster wird daraufhin in der Seitenleiste geöffnet.
+
+<img src="/assets/screenshots/step-3.png" alt="Fahrplanabfrage-Button in der Ribbon-Leiste" width="60%">
 
 ---
 
@@ -68,14 +71,15 @@ Im Fenster finden Sie zwei Abschnitte: **Hinfahrt** und **Rückfahrt**.
 
 #### Hinfahrt (zum Termin)
 Geben Sie ein:
-- **Von** (Ausgangsort): Ihre aktuelle Adresse oder Haltestelle
-- **Geh-Zeit** (Minuten): Wie lange Sie zu Fuss zur Haltestelle benötigen
+- **Haltestelle beim Terminort** (Zielort): Die ÖV-Haltestelle, über welche Sie den Terminort erreichen wollen. Alternativ kann auch die Adresse des Terminorts angegeben werden.
+- **Hinreise von** (Ausgangsort): Die ÖV-Haltestelle oder Adresse, von der aus sie die Hinreise zum Termin starten wollen.
+- **Gehzeit (min)**: Wie lange Sie am Terminort bzw. am Ausgangsort für den Weg zur Haltestelle benötigen.
 - Wählen Sie optional einen Favoriten aus der Dropdown-Liste
 
-Klicken Sie auf **Suchen** – das System findet Verbindungen, die vor dem Termin ankommen (mit Puffer für die Geh-Zeit).
+Klicken Sie auf **Suchen** – das System findet Verbindungen, die vor dem Termin ankommen (mit Puffer für die Gehzeit).
 
 #### Rückfahrt (vom Termin)
-Ähnlich wie die Hinfahrt: Geben Sie ein, wohin Sie zurück möchten und wie lange Sie zu Fuss brauchen.
+Ähnlich wie die Hinfahrt: Geben Sie ein, wohin Sie zurückreisen möchten und wie lange Sie für den Weg zur Haltestelle brauchen.
 
 <img src="/assets/screenshots/step-4.png" alt="Suchschnittstelle" width="30%">
 
@@ -96,18 +100,20 @@ Klicken Sie auf eine Verbindung, um sie auszuwählen (die Zeile wird hervorgehob
 
 ### Schritt 4: In Kalender übernehmen
 
-Nachdem Sie eine Verbindung ausgewählt haben, klicken Sie auf **Hinreise in den Kalender eintragen** (für die Hinfahrt) oder **Rückreise in den Kalender eintragen** (für die Rückfahrt).
+Nachdem Sie eine Verbindung ausgewählt haben, klicken Sie auf **Hinreise in Kalender eintragen** (für die Hinfahrt) oder **Rückreise in Kalender eintragen** (für die Rückfahrt).
 
 Das Add-in erstellt automatisch einen Kalender-Termin mit:
 - **Titel**: "Transfer [Von] – [Nach]"
-- **Ort**: Emoji-Kette der Route (z.B. "🚶‍➡️15' · 🚆S2 · 🚍130")
-- **Startzeit**: Abfahrtszeit (minus Geh-Zeit)
-- **Endzeit**: Ankunftszeit (plus Geh-Zeit)
+- **Ort**: Emoji-Kette der Route (z.B. "🚶‍➡️15' 🚆S2 🚍130")
+- **Startzeit**: Abfahrtszeit (minus Gehzeit)
+- **Endzeit**: Ankunftszeit (plus Gehzeit)
 - **Beschreibung**: Detaillierte Routeninformation mit allen Haltestellen
 
-Der Termin wird im Outlook-Kalender eingetragen.
+Es wird ein Fenster zur Erstellung eines neuen Termins eröffnet, welches mit diesen Informationen vorbefüllt ist. Diesen neuen Termin können Sie dann mit **Speichern** in ihren Kalender eintragen. 
 
 <img src="/assets/screenshots/step-6.png" alt="Termin in Kalender eintragen" width="60%">
+
+⚠️ **Hinweis**: Leider ist es aufgrund von technischen Restriktionen von Outlook nicht in jeder Situation möglich, das Fenster zur Erstellung eines neuen Termins anzuzeigen. In diesem Fall muss der neue Termin manuell angelegt werden. Es laufen Abklärungen dazu, wie dieses Problem gelöst werden kann.
 
 ---
 
@@ -131,7 +137,7 @@ Das Add-in erkennt automatisch die Sprache Ihres Outlook und wechselt entspreche
 - 🇩🇪 Deutsch (Schweiz, Deutschland)
 - 🇫🇷 Französisch (Schweiz, Frankreich)
 - 🇮🇹 Italienisch (Schweiz, Italien)
-- 🇷🇴 Rätoromanisch (Schweiz)
+- 🇨🇭 Rätoromanisch (Schweiz)
 - 🇬🇧 Englisch
 
 Um die Sprache manuell zu ändern:
@@ -151,13 +157,6 @@ Um die Sprache manuell zu ändern:
 - Die Installation ist unvollständig. Versuchen Sie, das Add-in neu zu installieren.
 - Sie haben einen Termin geöffnet? Das Add-in wird nur bei geöffnetem Kalender-Termin angezeigt.
 - Browser-Cache: Leeren Sie den Cache und laden Sie Outlook neu.
-
-### Die Suche liefert keine Ergebnisse
-
-**Mögliche Lösungen:**
-- Überprüfen Sie die Schreibweise von Haltestellen (z.B. "Zürich HB" statt "Zurich Hauptbahnhof")
-- Die eingegebene Zeit liegt möglicherweise ausserhalb der Betriebszeiten des ÖV
-- Versuchen Sie, eine bekannte Haltestelle einzugeben (z.B. "Bern")
 
 ### Der Termin wird nicht erstellt
 
@@ -206,7 +205,7 @@ https://github.com/mbeer/OutlookSwissPT-OfficeJS/issues
 
 Dieses Add-in ist unter der MIT-Lizenz veröffentlicht.
 
-- **Quellencode**: https://github.com/mbeer/OutlookSwissPT-OfficeJS
+- **Quellcode**: https://github.com/mbeer/OutlookSwissPT-OfficeJS
 - **Zeitplan-API**: search.ch (öffentliche API, keine Authentifizierung erforderlich)
 - **Icons**: Lucide (ISC-Lizenz)
 
