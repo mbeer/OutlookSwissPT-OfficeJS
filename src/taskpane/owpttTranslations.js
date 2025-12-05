@@ -242,7 +242,7 @@ export const owpttTranslations = {
 
     "sideload.title": "Complément pas encore chargé",
     "sideload.text":
-      "Veuillez charger le complément dans Outlook pour afficher la recherche d'horaire.",
+      "Veuillez charger le complément dans Outlook pour afficher la recherche d’horaire.",
     "sideload.link": "En savoir plus",
 
     "meetingLocation.title": "Arrêt à proximité du rendez-vous",
@@ -298,21 +298,21 @@ export const owpttTranslations = {
       "Cette correspondance ne contient pas d’horaires de départ/arrivée valables.",
     "status.noMailbox": "Aucun contexte de boîte aux lettres n’est disponible.",
     "status.noDisplayNewAppointmentApi":
-      "Ce client Outlook ne supporte pas l'insertion de rendez-vous à partir de cette vue. Supporté uniquement sur : Outlook Desktop (Windows), Outlook Web App (Outlook.com) ou le nouveau Outlook. Veuillez ouvrir le rendez-vous de votre calendrier en mode lecture (s'il est déjà enregistré) et réessayez.",
-    "status.displayAppointmentFailed": "L'ouverture de la fenêtre de rendez-vous a échoué.",
+      "Ce client Outlook ne supporte pas l’insertion de rendez-vous à partir de cette vue. Supporté uniquement sur : Outlook Desktop (Windows), Outlook Web App (Outlook.com) ou le nouveau Outlook. Veuillez ouvrir le rendez-vous de votre calendrier en mode lecture (s’il est déjà enregistré) et réessayez.",
+    "status.displayAppointmentFailed": "L’ouverture de la fenêtre de rendez-vous a échoué.",
     "status.favoritesImported": "Arrêts favoris importés avec succès.",
 
     // Info/aide calendrier de référence
     "calendar.info.howToReadMode":
-      "Pour passer en mode lecture : enregistrez votre rendez-vous, allez à votre calendrier et ouvrez-le en cliquant dessus. Vous verrez un bouton 'Éditer' (pas un champ de texte) si vous êtes en mode lecture.",
+      "Pour passer en mode lecture : enregistrez votre rendez-vous, allez à votre calendrier et ouvrez-le en cliquant dessus. Vous verrez un bouton ’Éditer’ (pas un champ de texte) si vous êtes en mode lecture.",
 
     // Limitations en mode édition
     "calendar.composeLimited.banner":
-      "Mode limité : Ce rendez-vous est ouvert en mode édition. L'insertion automatique d'entrées de calendrier n'est pas disponible ici. Vous pouvez copier les détails de correspondance manuellement, ou enregistrer le rendez-vous, puis l'ouvrir à nouveau à partir de votre calendrier en mode lecture.",
+      "Mode limité : Ce rendez-vous est ouvert en mode édition. L’insertion automatique d’entrées de calendrier n’est pas disponible ici. Vous pouvez copier les détails de correspondance manuellement, ou enregistrer le rendez-vous, puis l’ouvrir à nouveau à partir de votre calendrier en mode lecture.",
     "calendar.composeLimited.buttonTooltip":
-      "L'insertion automatique n'est pas disponible en mode édition. Veuillez enregistrer le rendez-vous et l'ouvrir à partir de votre calendrier en mode lecture.",
+      "L’insertion automatique n’est pas disponible en mode édition. Veuillez enregistrer le rendez-vous et l’ouvrir à partir de votre calendrier en mode lecture.",
 
-    // Messages d'erreur
+    // Messages d’erreur
     "error.copyDetails": "Copier les détails",
     "error.dismiss": "Fermer",
     "error.unexpected":
@@ -328,8 +328,8 @@ export const owpttTranslations = {
     "settings.description": "Personnalisez vos préférences de complément.",
 
     "settings.language.title": "Langue",
-    "settings.language.description": "Choisissez la langue d'affichage du complément.",
-    "settings.language.label": "Langue d'affichage :",
+    "settings.language.description": "Choisissez la langue d’affichage du complément.",
+    "settings.language.label": "Langue d’affichage :",
     "settings.language.auto": "Automatique (depuis Outlook)",
 
     "settings.stops.title": "Arrêts favoris",
@@ -348,7 +348,7 @@ export const owpttTranslations = {
 
     "settings.stops.exportTitle": "Exporter / importer",
     "settings.stops.exportDescription":
-      "Pour exporter, copiez le contenu du champ ci-dessous. Pour importer sur un autre PC, collez le contenu copié dans ce champ et cliquez sur 'Importer la liste'.",
+      "Pour exporter, copiez le contenu du champ ci-dessous. Pour importer sur un autre PC, collez le contenu copié dans ce champ et cliquez sur ’Importer la liste’.",
     "settings.stops.button.import": "Importer la liste",
 
     "settings.close": "Fermer",
@@ -367,7 +367,7 @@ export const owpttTranslations = {
       "Carichi il componente aggiuntivo in Outlook per visualizzare la ricerca orario.",
     "sideload.link": "Maggiori informazioni",
 
-    "meetingLocation.title": "Fermata vicino al luogo dell'appuntamento",
+    "meetingLocation.title": "Fermata vicino al luogo dell’appuntamento",
     "meetingLocation.stationLabel": "Fermata presso il luogo dell’appuntamento:",
     "meetingLocation.stationPlaceholder": "p. es. Köniz, Lerbermatt",
     "meetingLocation.walkLabel": "Tempo a piedi (min):",
@@ -417,19 +417,19 @@ export const owpttTranslations = {
     "status.invalidTimes": "Questo collegamento non contiene orari di partenza/arrivo validi.",
     "status.noMailbox": "Nessun contesto di cassetta postale disponibile.",
     "status.noDisplayNewAppointmentApi":
-      "Questo client Outlook non supporta l'inserimento di appuntamenti da questa vista. Supportato solo su: Outlook Desktop (Windows), Outlook Web App (Outlook.com) o il nuovo Outlook. Apra l'appuntamento dal suo calendario in modalità lettura (se già salvato) e riprovi.",
-    "status.displayAppointmentFailed": "Apertura della finestra dell'appuntamento non riuscita.",
+      "Questo client Outlook non supporta l’inserimento di appuntamenti da questa vista. Supportato solo su: Outlook Desktop (Windows), Outlook Web App (Outlook.com) o il nuovo Outlook. Apra l’appuntamento dal suo calendario in modalità lettura (se già salvato) e riprovi.",
+    "status.displayAppointmentFailed": "Apertura della finestra dell’appuntamento non riuscita.",
     "status.favoritesImported": "Fermate preferite importate con successo.",
 
     // Info/aiuto calendario di riferimento
     "calendar.info.howToReadMode":
-      "Per accedere alla modalità lettura: salvi l'appuntamento, vada al suo calendario e apralo facendo clic su di esso. Vedrà un pulsante 'Modifica' (non un campo di testo) se è in modalità lettura.",
+      "Per accedere alla modalità lettura: salvi l’appuntamento, vada al suo calendario e apralo facendo clic su di esso. Vedrà un pulsante ’Modifica’ (non un campo di testo) se è in modalità lettura.",
 
     // Limitazioni in modalità modifica
     "calendar.composeLimited.banner":
-      "Modalità limitata: Questo appuntamento è aperto in modalità modifica. L'inserimento automatico di voci del calendario non è disponibile qui. Può copiare manualmente i dettagli della connessione, o salvare l'appuntamento, quindi riaprirlo dal suo calendario in modalità lettura.",
+      "Modalità limitata: Questo appuntamento è aperto in modalità modifica. L’inserimento automatico di voci del calendario non è disponibile qui. Può copiare manualmente i dettagli della connessione, o salvare l’appuntamento, quindi riaprirlo dal suo calendario in modalità lettura.",
     "calendar.composeLimited.buttonTooltip":
-      "L'inserimento automatico non è disponibile in modalità modifica. Salvi l'appuntamento e lo apra dal suo calendario in modalità lettura.",
+      "L’inserimento automatico non è disponibile in modalità modifica. Salvi l’appuntamento e lo apra dal suo calendario in modalità lettura.",
 
     // Messaggi di errore
     "error.copyDetails": "Copia dettagli",
@@ -467,7 +467,7 @@ export const owpttTranslations = {
 
     "settings.stops.exportTitle": "Esporta / importa",
     "settings.stops.exportDescription":
-      "Per esportare, copia il contenuto del campo sottostante. Per importare su un altro PC, incolla il contenuto copiato in questo campo e fai clic su 'Importa elenco'.",
+      "Per esportare, copia il contenuto del campo sottostante. Per importare su un altro PC, incolla il contenuto copiato in questo campo e fai clic su ’Importa elenco’.",
     "settings.stops.button.import": "Importa elenco",
 
     "settings.close": "Chiudi",
@@ -483,7 +483,7 @@ export const owpttTranslations = {
 
     "sideload.title": "Complement anc betg chargià",
     "sideload.text":
-      "Per plaschair chargia il complement en Outlook per mussar la retschertga d'urarei.",
+      "Per plaschair chargia il complement en Outlook per mussar la retschertga d’urarei.",
     "sideload.link": "Ulteriuras infurmaziuns",
 
     "meetingLocation.title": "Sosta datiers dal lieu dal termin",
@@ -536,21 +536,21 @@ export const owpttTranslations = {
     "status.invalidTimes": "Questa colliaziun na cuntegna betg uras da partenza/arriv validas.",
     "status.noMailbox": "Nagins contexts da posta electronica disponibels.",
     "status.noDisplayNewAppointmentApi":
-      "Quest client Outlook na supportescha betg l'inserir da termins ord questa vista. Suportà mo sin: Outlook Desktop (Windows), Outlook Web App (Outlook.com) u il nov Outlook. Per plaschair avra il termin da tes chalender en moduol da lectura (tgi ch'è già giavischà) e emprova anc ina giada.",
+      "Quest client Outlook na supportescha betg l’inserir da termins ord questa vista. Suportà mo sin: Outlook Desktop (Windows), Outlook Web App (Outlook.com) u il nov Outlook. Per plaschair avra il termin da tes chalender en moduol da lectura (tgi ch’è già giavischà) e emprova anc ina giada.",
     "status.displayAppointmentFailed": "Avrir la fanestra dal termin è reussì betg.",
     "status.favoritesImported": "Staziuns preferidas importadas cun success.",
 
     // Agid/infurmaziun chalender da referenza
     "calendar.info.howToReadMode":
-      "Per entrar en il moduol da lectura: giavischescha tes termin, va a tes chalender e avrescha el tras da cliccar davostagl. Ti vesiş ina butona 'Redacziun' (betg ina campo da text), tgi che ti ess en il moduol da lectura.",
+      "Per entrar en il moduol da lectura: giavischescha tes termin, va a tes chalender e avrescha el tras da cliccar davostagl. Ti vesiş ina butona ’Redacziun’ (betg ina campo da text), tgi che ti ess en il moduol da lectura.",
 
     // Limitaziuns en moduol da redacziun
     "calendar.composeLimited.banner":
-      "Moduol limitad: Quel termin è aviert en moduol da redacziun. L'inserir automatic da registraziuns da chalender n'è betg disponibel qua. Tu pudessas copiar ils detagls da colliaziun manualmain, u giavischescha il termin, lur avrescha el anc ina giada d'tes chalender en moduol da lectura.",
+      "Moduol limitad: Quel termin è aviert en moduol da redacziun. L’inserir automatic da registraziuns da chalender n’è betg disponibel qua. Tu pudessas copiar ils detagls da colliaziun manualmain, u giavischescha il termin, lur avrescha el anc ina giada d’tes chalender en moduol da lectura.",
     "calendar.composeLimited.buttonTooltip":
-      "L'inserir automatic n'è betg disponibel en moduol da redacziun. Per plaschair giavischescha il termin e avrescha el d'tes chalender en moduol da lectura.",
+      "L’inserir automatic n’è betg disponibel en moduol da redacziun. Per plaschair giavischescha il termin e avrescha el d’tes chalender en moduol da lectura.",
 
-    // Messaigs d'errur
+    // Messaigs d’errur
     "error.copyDetails": "Copiar detagls",
     "error.dismiss": "Serrar",
     "error.unexpected": "In errur imprevischà è succedì durant l’inicialisaziun dal complement.",
@@ -585,7 +585,7 @@ export const owpttTranslations = {
 
     "settings.stops.exportTitle": "Export / import",
     "settings.stops.exportDescription":
-      "Per exportar, copiescha il cuntegn dal champ suandant. Per importar sin in auter computer, encollescha il cuntegn copià en quest champ e clicca sin 'Importar glista'.",
+      "Per exportar, copiescha il cuntegn dal champ suandant. Per importar sin in auter computer, encollescha il cuntegn copià en quest champ e clicca sin ’Importar glista’.",
     "settings.stops.button.import": "Importar glista",
 
     "settings.close": "Serrar",
