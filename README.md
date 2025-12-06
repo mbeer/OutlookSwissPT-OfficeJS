@@ -12,7 +12,9 @@ It uses the [search.ch timetable API](https://search.ch/fahrplan/api) to query r
 
 ## Documentation
 
-**User Guide (German)**: [Fahrplanabfrage für Outlook – Benutzerhandbuch](src/docs/de-CH.md)
+**User Guides:**
+- 🇩🇪 [Fahrplanabfrage für Outlook – Benutzerhandbuch (Deutsch)](src/docs/de-CH.md)
+- 🇫🇷 [Recherche d'horaires pour Outlook – Guide d'utilisation (Français)](src/docs/fr-CH.md)
 
 Additional language documentation pending. Contributions welcome!
 
@@ -164,7 +166,8 @@ Currently supported:
 │  │  ├─ commands.html
 │  │  └─ commands.js
 │  ├─ docs/
-│  │  └─ de-CH.md
+│  │  ├─ de-CH.md
+│  │  └─ fr-CH.md
 │  ├─ services/
 │  │  └─ FahrplanSearchCH.js
 │  └─ taskpane/
