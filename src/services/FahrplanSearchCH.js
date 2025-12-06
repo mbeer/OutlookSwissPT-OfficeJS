@@ -424,7 +424,7 @@ export class Connection {
         const minutesStr = minutes ? `${minutes}′` : "";
 
         // (🚶‍➡️10′)
-        segments.push(`(🚶‍➡️${minutesStr}`);
+        segments.push(`(🚶‍➡️${minutesStr})`);
         // Only mention the destination stop separately for the final walk leg
         if (!nextLeg && toName) {
           segments.push(toName);
