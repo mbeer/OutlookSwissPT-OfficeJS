@@ -39,9 +39,9 @@ Das Add-in wird über eine Manifest-Datei installiert. Laden Sie die Datei wie f
 Öffnen Sie https://aka.ms/olksideload und folgen Sie diesem Pfad:
 
 1. Klicken Sie auf **Meine Add-ins**
-2. Wählen Sie **Benutzerdefinierte Add-Ins**
+2. Scrollen Sie zu **Benutzerdefinierte Add-Ins**
 3. Klicken Sie auf **Benutzerdefiniertes Add-In hinzufügen**
-4. Wählen Sie **Aus Datei hinzufügen**
+4. Wählen Sie **Aus Datei hinzufügen…**
 5. Wählen Sie die zuvor heruntergeladene `manifest.xml`-Datei aus
 6. Bestätigen Sie die Installation
 
@@ -263,7 +263,7 @@ Dieses Add-in ist unter der MIT-Lizenz veröffentlicht.
 ---
 
 **Entwickler**: Michael Beer  
-**Version**: 2.0.0  
+**Version**: 2.0.1  
 **Letztes Update**: Dezember 2025
 
 ---

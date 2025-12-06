@@ -188,3 +188,17 @@ The `search.ch` timetable API (`https://search.ch/fahrplan/api/`) returns:
 - **VersionOverrides**: Defines ribbon button (`AppointmentOrganizerCommandSurface`) for Compose mode
 - **Localization**: DisplayName and Description translated inline via `<Override Locale="de-CH">` elements
 - **Dev URLs**: Change localhost references to production URLs before deployment using webpack's manifest transform
+
+## Version Management
+
+When releasing a new version, update version numbers in **all three files**:
+1. `package.json` – "version" field (semantic versioning: x.y.z)
+2. `manifest.xml` – `<Version>` element (four-part version: x.y.z.0)
+3. `src/docs/de-CH.md` – **Version** field in footer (x.y.z)
+
+Follow semantic versioning:
+- **Major (x.0.0)**: Breaking changes, incompatible API changes
+- **Minor (0.x.0)**: New features, backwards-compatible
+- **Patch (0.0.x)**: Bug fixes, minor improvements
+
+After version bump: build production artifacts, commit, tag with `vx.y.z`, and push to GitHub.
