@@ -57,11 +57,11 @@ Nach erfolgreicher Installation sollte das Add-in in Outlook verfügbar sein, we
 
 Öffnen Sie einen Kalender-Termin in Outlook (existierend oder neu erstellt). 
 
-**Wichtig:** Speichern Sie neue Termine zuerst (Strg+S oder klicken Sie auf «Speichern»), damit das Add-in korrekt funktioniert.
+**Wichtig:** Speichern Sie neue Termine zuerst (Strg+S oder klicken Sie auf «Speichern»). Der Termin darf *nicht* im Bearbeiten-Modus geöffnet sein , damit das Add-in korrekt funktioniert.
 
 Klicken Sie in der Outlook-Menüleiste auf die Schaltfläche **Fahrplanabfrage** – das Add-in-Fenster wird daraufhin in der Seitenleiste geöffnet.
 
-<img src="/assets/screenshots/step-3-de.png" alt="Fahrplanabfrage-Button in der Ribbon-Leiste" width="60%">
+<img src="/assets/screenshots/step-4.png" alt="Terminfenster mit Fahrplanabfrage-Button in der Ribbon-Leiste" width="100%">
 
 ---
 
@@ -80,8 +80,6 @@ Klicken Sie auf **Suchen** – das System findet Verbindungen, die vor dem Termi
 
 #### Rückfahrt (vom Termin)
 Ähnlich wie die Hinfahrt: Geben Sie ein, wohin Sie zurückreisen möchten und wie lange Sie für den Weg zur Haltestelle brauchen.
-
-<img src="/assets/screenshots/step-4.png" alt="Suchschnittstelle" width="30%">
 
 ---
 
