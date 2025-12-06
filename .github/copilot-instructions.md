@@ -15,6 +15,15 @@
 ## Directory Structure
 
 ```
+assets/
+  icon-*.png          # Add-in icons (16, 32, 64, 80, 128px)
+  screenshots/        # Installation guide screenshots
+    step-1-de.png
+    step-2-de.png
+    step-4.png
+    step-5.png
+    step-6.png
+    step-7.png
 src/
   taskpane/           # Main UI (Office.js context)
     taskpane.js       # Core logic: search, i18n, state management
@@ -25,6 +34,8 @@ src/
     FahrplanSearchCH.js   # Timetable search API client
   commands/
     commands.js       # Ribbon button callback (minimal)
+  docs/
+    de-CH.md          # German user documentation
 manifest.xml          # Outlook manifest (ID, buttons, permissions)
 webpack.config.js     # Webpack dev server + build config
 babel.config.json     # Babel polyfills (IE 11 compatibility)
@@ -44,7 +55,6 @@ All global state in `taskpane.js`:
 - `owpttInboundConnections`, `owpttOutboundConnections` – API responses (array of `Connection` objects)
 - `owpttInboundSelectedIndex`, `owpttOutboundSelectedIndex` – selected row in table
 - `owpttFavoriteStops` – array of {name, walkMinutes} persisted to localStorage
-- `owpttDisplaySettings` – {showDiagnostics} also persisted to localStorage
 
 ### 3. **API Client Pattern** (`FahrplanSearchCH.js`)
 - `ConnectionsRequest` class: encapsulates search parameters (from, to, dateTime, isArrivalTime, limit)
@@ -113,12 +123,6 @@ All text must use correct Unicode typographic characters for professional appear
 - **Always verify** when adding new text that apostrophes and minutes use the correct characters
 - Search files for straight apostrophes `'` to catch mistakes; should only appear in code strings, comments explaining the difference
 
-### 9. **Diagnostics Section**
-- Hidden by default; toggled via settings checkbox (`owptt-display-show-diagnostics`)
-- Displays: host name, host version, requirement set support, mailbox API availability
-- Debug output appended via `appendDiagnostics(line)`
-- API request URLs logged here for troubleshooting
-
 ## Critical Development Commands
 
 | Task | Command |
@@ -163,8 +167,8 @@ Sideloading (OWA/Outlook): Follow Microsoft’s guide at https://aka.ms/olksidel
 
 - **Sideload**: Manifest registers add-in on first `npm start` run
 - **Logs**: Browser console (F12 in Outlook) shows `taskpane.js` errors and `console.log()`
-- **Error tracking**: `showStatus()` displays messages in diagnostics or alert fallback
-- **Request inspection**: Enable diagnostics section to see actual search.ch API URLs
+- **Error tracking**: `showStatus()` displays user-facing error messages
+- **Request inspection**: Check browser Network tab to see actual search.ch API requests
 - **Locale testing**: Manually set `owpttCurrentLocale` in console to test translation fallback
 
 ## Integration with search.ch API
