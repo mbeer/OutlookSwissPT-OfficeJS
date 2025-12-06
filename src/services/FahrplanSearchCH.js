@@ -54,7 +54,7 @@ function parseSearchChDateTime(value) {
 
 /**
  * Call the search.ch completion API.
- * See https://search.ch/fahrplan/api/help#completion for details.
+ * See https://search.ch/timetable/api/help.en.html for details.
  * Returns an array of suggestion objects; the taskpane only uses the
  * `label` field.
  *

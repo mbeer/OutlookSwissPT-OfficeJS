@@ -178,7 +178,7 @@ The `search.ch` timetable API (`https://search.ch/fahrplan/api/`) returns:
 - **Completion API** (`/completion.json`): Autocomplete for station names
 - **Response format**: Case-insensitive (API uses lowercase; parser handles both)
 - **No authentication required**; public API
-- **API Documentation**: Detailed endpoint reference available at https://search.ch/fahrplan/api/help
+- **API Documentation**: Detailed endpoint reference available at https://search.ch/timetable/api/help.en.html
 
 **Rate-limiting**: No documented limits, but cache aggressively in UI (favorites) to avoid repeated identical queries.
 

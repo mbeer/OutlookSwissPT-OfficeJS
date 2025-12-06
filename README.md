@@ -4,7 +4,7 @@
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](LICENSE)
 
 An Outlook add-in that shows **Swiss public transport connections** for the current appointment.  
-It uses the [search.ch timetable API](https://search.ch/fahrplan/api) to query real-time and timetable data and displays convenient outbound/return journeys directly in the Outlook task pane.
+It uses the [search.ch timetable API](https://search.ch/timetable/api/help.en.html) to query real-time and timetable data and displays convenient outbound/return journeys directly in the Outlook task pane.
 
 > **Note:** This project is not affiliated with, endorsed by, or in any way officially connected to SBB, search.ch, Microsoft, or any Swiss transport operator.
 
@@ -35,7 +35,7 @@ Additional language documentation pending. Contributions welcome!
 
 - Outlook Add-in (Office.js)
 - HTML / CSS / JavaScript (no framework)
-- [search.ch timetable API](https://search.ch/fahrplan/api)
+- [search.ch timetable API](https://search.ch/timetable/api/help.en.html)
 - Icon based on [Lucide](https://lucide.dev) (see below for licensing)
 
 ---
