@@ -1000,7 +1000,6 @@ function importFavoriteStopsFromJson() {
       .filter(Boolean);
     setFavoriteStops(cleaned);
     jsonBox.value = "";
-    showStatus("Standard stops imported.");
   } catch (e) {
     console.error("importFavoriteStopsFromJson failed:", e);
     showStatus("Could not parse JSON for standard stops.");
