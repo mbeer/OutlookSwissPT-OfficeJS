@@ -151,11 +151,20 @@ Currently supported:
 │  ├─ icon-32.png
 │  ├─ icon-64.png
 │  ├─ icon-80.png
-│  └─ icon-128.png
+│  ├─ icon-128.png
+│  └─ screenshots/
+│     ├─ step-1-de.png
+│     ├─ step-2-de.png
+│     └─ step-4.png
+│     └─ step-5.png
+│     └─ step-6.png
+│     └─ step-7.png
 ├─ src/
 │  ├─ commands/
 │  │  ├─ commands.html
 │  │  └─ commands.js
+│  ├─ docs/
+│  │  └─ de-CH.md
 │  ├─ services/
 │  │  └─ FahrplanSearchCH.js
 │  └─ taskpane/
