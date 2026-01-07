@@ -411,6 +411,8 @@ function attachSearchChStationCompletion(
 
   function positionSuggestionBox() {
     if (!suggestionBox) return;
+    // Only reposition if this input is the current owner of the suggestion box
+    if (owpttSuggestionsOwnerInput !== input) return;
     try {
       const rect = input.getBoundingClientRect();
       const left = rect.left + window.pageXOffset;
@@ -662,7 +664,9 @@ function attachSearchChStationCompletion(
     // Track scrolling inside the document to reposition box
     document.addEventListener(
       "scroll",
-      () => {
+      (ev) => {
+        // Don't reposition if scrolling inside the suggestion box itself
+        if (ev.target === suggestionBox || suggestionBox.contains(ev.target)) return;
         if (suggestionBox && !suggestionBox.hidden) positionSuggestionBox();
       },
       true
