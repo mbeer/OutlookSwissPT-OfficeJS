@@ -36,6 +36,7 @@ src/
     commands.js       # Ribbon button callback (minimal)
   docs/
     de-CH.md          # German user documentation
+    fr-CH.md          # French user documentation
 manifest.xml          # Outlook manifest (ID, buttons, permissions)
 webpack.config.js     # Webpack dev server + build config
 babel.config.json     # Babel polyfills (IE 11 compatibility)
