@@ -264,7 +264,7 @@ Dieses Add-in ist unter der MIT-Lizenz veröffentlicht.
 
 **Entwickler**: Michael Beer  
 **Version**: 2.0.3  
-**Letztes Update**: Dezember 2025
+**Letztes Update**: Januar 2026
 
 ---
 

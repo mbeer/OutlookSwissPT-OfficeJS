@@ -263,8 +263,8 @@ Cet add-in est publié sous la licence MIT.
 ---
 
 **Développeur** : Michael Beer  
-**Version** : 2.0.2  
-**Dernière mise à jour** : Décembre 2025
+**Version** : 2.0.3  
+**Dernière mise à jour** : Janvier 2026
 
 ---
 
