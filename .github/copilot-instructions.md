@@ -208,3 +208,5 @@ Follow semantic versioning:
 - **Patch (0.0.x)**: Bug fixes, minor improvements
 
 After version bump: build production artifacts, commit, tag with `vx.y.z`, and push to GitHub.
+
+**Annual maintenance**: At the start of each new year, update the copyright year in `src/taskpane/taskpane.html` footer (owptt-main-footer element) to reflect the current year range (e.g., © 2018–2026).
