@@ -213,7 +213,7 @@ The code in this repository is licensed under the **MIT License**.
 
 Please see the [`LICENSE`](LICENSE) file for the full text.
 
-Copyright (c) 2025 Michael Beer
+Copyright (c) 2018–2026 Michael Beer
 
 ### Icons (Lucide)
 
